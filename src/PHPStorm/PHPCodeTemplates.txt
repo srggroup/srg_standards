@@ -1,0 +1,88 @@
+--------------------------------------------------
+Includes / PHP Class Doc Comment
+/**
+ * Class ${NAME}
+ *
+#if (${NAMESPACE}) * @package ${NAMESPACE}
+#end
+ * @author SRG Group <dev@srg.hu>
+ * @copyright ${YEAR} SRG Group Kft.
+ */
+--------------------------------------------------
+Includes / PHP File Header
+--------------------------------------------------
+Includes / PHP Interface Doc Comment
+/**
+ * Interface ${NAME}
+ *
+#if (${NAMESPACE}) * @package ${NAMESPACE}
+#end
+ * @author SRG Group <dev@srg.hu>
+ * @copyright ${YEAR} SRG Group Kft.
+ */
+--------------------------------------------------
+Includes / PHP Trait Doc Comment
+/**
+ * Trait ${NAME}
+ *
+#if (${NAMESPACE}) * @package ${NAMESPACE}
+#end
+ * @author SRG Group <dev@srg.hu>
+ * @copyright ${YEAR} SRG Group Kft.
+ */
+--------------------------------------------------
+Code / PHP Fluent Setter Method
+/**
+ * Set ${NAME}
+ *
+ * @param ${TYPE_HINT} $${PARAM_NAME}
+ * @return ${CLASS_NAME}
+ */
+public function set${NAME}(#if (${SCALAR_TYPE_HINT})${SCALAR_TYPE_HINT} #else#end$${PARAM_NAME})#if(${RETURN_TYPE}): ${CLASS_NAME}#else#end {
+    $this->${FIELD_NAME} = $${PARAM_NAME};
+    return $this;
+}
+
+--------------------------------------------------
+Code / PHP Getter Method
+/**
+ * Set ${NAME}
+ *
+ * @param ${TYPE_HINT} $${PARAM_NAME}
+ */
+public ${STATIC} function set${NAME}(#if (${SCALAR_TYPE_HINT})${SCALAR_TYPE_HINT} #end$${PARAM_NAME})#if (${VOID_RETURN_TYPE}):void #end {
+#if (${STATIC} == "static")
+    self::$${FIELD_NAME} = $${PARAM_NAME};
+#else
+    $this->${FIELD_NAME} = $${PARAM_NAME};
+#end
+}
+--------------------------------------------------
+Code / PHP Setter Method
+/**
+ * Set ${NAME}
+ * @param ${TYPE_HINT} $${PARAM_NAME}
+ * @return ${CLASS_NAME}
+ */
+public function set${NAME}(#if (${SCALAR_TYPE_HINT})${SCALAR_TYPE_HINT} #else#end$${PARAM_NAME})#if(${RETURN_TYPE}): ${CLASS_NAME}#else#end {
+    $this->${FIELD_NAME} = $${PARAM_NAME};
+    return $this;
+}
+--------------------------------------------------
+Code / PHPUnit SetUp Method
+protected function setUp() {
+    parent::setUp();
+}
+--------------------------------------------------
+Code / PHPUnit TearDown Method
+protected function tearDown() {
+    parent::tearDown();
+}
+--------------------------------------------------
+Code / PHPUnit Test Method
+public function test${CAPITALIZED_NAME}() {
+
+}
+--------------------------------------------------
+
+ 
