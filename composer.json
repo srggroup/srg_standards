@@ -1,0 +1,15 @@
+{
+  "name": "srggroup/srg_standards",
+  "description": "SRG Standards",
+  "type": "project",
+  "require": {
+  },
+  "require-dev": {
+  },
+  "autoload": {
+  },
+  "autoload-dev": {
+  },
+  "repositories": [
+  ]
+}
