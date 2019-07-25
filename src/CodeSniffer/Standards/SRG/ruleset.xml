@@ -132,6 +132,7 @@
 		<exclude name="Squiz.Arrays.ArrayDeclaration.NoCommaAfterLast"/>
 		<exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
 		<exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
+		<exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
 	</rule>
 	<rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
 
