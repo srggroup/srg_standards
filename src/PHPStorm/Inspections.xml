@@ -14,6 +14,7 @@
     <option name="CHECK_INC" value="false" />
     <option name="CHECK_JS" value="false" />
     <option name="CHECK_CSS" value="false" />
+    <option name="EXTENSIONS" value="php" />
   </inspection_tool>
   <inspection_tool class="PhpClassNamingConventionInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
     <option name="m_maxLength" value="35" />
