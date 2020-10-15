@@ -49,6 +49,12 @@ Code / PHP Fluent Setter Method
 #if ($TYPE_HINT.endsWith("[]"))
     #set($typeHintText = "array ")
 #end
+#if ($TYPE_HINT.endsWith("|null"))
+ #set($hintIndex = $TYPE_HINT.indexOf("|"))
+ #set($paramHint = "?" + $TYPE_HINT.substring(0, $hintIndex) + " ")
+#else
+ #set($paramHint = $typeHintText)
+#end
 /**
  * Set ${NAME}
  * @param $typeHintText$${PARAM_NAME}
@@ -56,7 +62,7 @@ Code / PHP Fluent Setter Method
  * @return ${CLASS_NAME}
 #end
  */
-public ${STATIC} function set${NAME}($typeHintText$${PARAM_NAME}) {
+public ${STATIC} function set${NAME}($paramHint$${PARAM_NAME})#if (${STATIC} != "static"): ${CLASS_NAME}#end {
 #if (${STATIC} == "static")
     self::$${FIELD_NAME} = $${PARAM_NAME};
 #else
