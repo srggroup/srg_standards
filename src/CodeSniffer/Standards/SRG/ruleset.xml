@@ -50,7 +50,6 @@
 		</properties>
 	</rule>
 
-	<rule ref="Generic.NamingConventions.AbstractClassNamePrefix"/>
 	<rule ref="Generic.NamingConventions.InterfaceNameSuffix"/>
 	<rule ref="Generic.NamingConventions.TraitNameSuffix"/>
 	<rule ref="Generic.NamingConventions.ConstructorName"/>
