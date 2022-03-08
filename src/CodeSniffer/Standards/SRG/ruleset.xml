@@ -206,6 +206,7 @@
 	<rule ref="Squiz.ControlStructures.SwitchDeclaration">
 		<exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/>
 		<exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterBreak"/>
+		<exclude name="Squiz.ControlStructures.SwitchDeclaration.MissingDefault"/>
 	</rule>
 
 	<rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing"/>
