@@ -3,7 +3,7 @@
   "description": "SRG Standards",
   "type": "project",
   "require": {
-    "php": "^7.3 | ^8.0",
+    "php": "^7.2 | ^8.0",
     "squizlabs/php_codesniffer": "3.*"
   }
 }
