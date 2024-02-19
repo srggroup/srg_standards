@@ -91,7 +91,7 @@
 	<rule ref="Generic.PHP.LowerCaseKeyword"/>
 	<rule ref="Generic.PHP.LowerCaseType"/>
 	<rule ref="Generic.PHP.NoSilencedErrors"/>
-	<rule ref="Generic.PHP.RequireStrictTypesSniff"/>
+	<rule ref="./vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/PHP/RequireStrictTypesSniff.php"/>
 
 	<rule ref="Generic.Strings.UnnecessaryStringConcat"/>
 
