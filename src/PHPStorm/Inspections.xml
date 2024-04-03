@@ -59,7 +59,7 @@
 		<option name="m_minLength" value="2"/>
 		<option name="m_maxLength" value="45"/>
 	</inspection_tool>
-	<inspection_tool class="PhpMissingDocCommentInspection" enabled="true" level="WARNING" enabled_by_default="true">
+	<inspection_tool class="PhpMissingDocCommentInspection" enabled="false" level="WARNING" enabled_by_default="true">
 		<option name="CHECK_FIELD" value="true"/>
 	</inspection_tool>
 	<inspection_tool class="PhpMissingParentConstructorInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true"/>
