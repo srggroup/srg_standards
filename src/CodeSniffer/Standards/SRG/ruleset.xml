@@ -181,6 +181,7 @@
 	<rule ref="Squiz.Commenting.FunctionComment">
 		<exclude name="Squiz.Commenting.FunctionComment.Missing"/>
 		<exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+		<exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
 		<exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
 		<exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
 		<exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/> <!--@TODO Include if parent classes has type declarations-->
