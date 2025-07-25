@@ -291,6 +291,7 @@
 	</rule>
 
 
+	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint"/>
 
 	<arg name="colors"/>
 	<ini name="memory_limit" value="128M"/>

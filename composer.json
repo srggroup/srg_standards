@@ -4,6 +4,12 @@
   "type": "phpcodesniffer-standard",
   "require": {
     "php": "^7.2 | ^8.0",
-    "squizlabs/php_codesniffer": "3.*"
+    "squizlabs/php_codesniffer": "3.*",
+    "slevomat/coding-standard": "^8.19.1"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }
