@@ -5,126 +5,194 @@
 
     <arg name="tab-width" value="4"/>
 
-    <rule ref="PSR12">
-        <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
-        <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
-        <exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/>
-        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/>
-        <exclude name="PSR1.Files.SideEffects"/>
-        <exclude name="PSR2.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
-        <exclude name="PSR2.Functions.FunctionCallSignature.CloseBracketLine"/>
+    <rule ref="PSR12"> <!-- PSR-12: Extended coding style guide for PHP -->
+        <exclude name="Generic.WhiteSpace.DisallowTabIndent"/> <!-- Allow tab indentation -->
+        <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/> <!-- Allow opening brace on the same line for classes -->
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/> <!-- Allow function brace on same line -->
     </rule>
 
 
-    <!-- Overwrite PSR12, allows tabs -->
-    <rule ref="Generic.WhiteSpace.ScopeIndent">
+    <!--<rule ref="LaminasCodingStandard"> &lt;!&ndash; Laminas Coding Standard: strict coding conventions for PHP &ndash;&gt;
+        <exclude name="Generic.Arrays.ArrayIndent"/> &lt;!&ndash; Allow tab indentation in arrays (default: 4 spaces) &ndash;&gt;
+        <exclude name="Generic.Formatting.SpaceAfterNot"/> &lt;!&ndash; Allow no-space after logical not (!) operator &ndash;&gt;
+        <exclude name="Generic.PHP.CharacterBeforePHPOpeningTag"/> &lt;!&ndash; Allow content before opening PHP tag &ndash;&gt;
+        <exclude name="WebimpressCodingStandard.Arrays.Format"/> &lt;!&ndash; Allow whitespace around array brackets &ndash;&gt;
+        <exclude name="WebimpressCodingStandard.Arrays.TrailingArrayComma"/> &lt;!&ndash; Allow missing trailing comma in multiline arrays &ndash;&gt;
+        <exclude name="WebimpressCodingStandard.Classes.AlphabeticallySortedTraits"/> &lt;!&ndash; Do not require traits to be sorted alphabetically &ndash;&gt;
+        <exclude name="WebimpressCodingStandard.Classes.NoNullValues"/> &lt;!&ndash; Allow class properties to have default null values &ndash;&gt;
+        <exclude name="WebimpressCodingStandard.Methods.LineAfter"/> &lt;!&ndash; Do not require blank line between methods &ndash;&gt;
+        <exclude name="WebimpressCodingStandard.WhiteSpace.CommaSpacing"/> &lt;!&ndash; Allow flexible spacing after commas &ndash;&gt;
+    </rule>-->
+
+
+    <!-- General styling -->
+    <rule ref="Generic.WhiteSpace.ScopeIndent"> <!-- Overwrite PSR12, allow tabs -->
         <properties>
             <property name="indent" value="4"/>
             <property name="tabIndent" value="true"/>
         </properties>
     </rule>
-    <!-- Overwrite PSR12, -->
-    <rule ref="PSR12.ControlStructures.ControlStructureSpacing">
-        <exclude name="PSR12.ControlStructures.ControlStructureSpacing.FirstExpressionLine"/>
-        <exclude name="PSR12.ControlStructures.ControlStructureSpacing.CloseParenthesisLine"/>
-        <exclude name="PSR12.ControlStructures.ControlStructureSpacing.LineIndent"/>
-    </rule>
-    <rule ref="Squiz.ControlStructures.SwitchDeclaration">
-        <exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/>
-        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterBreak"/>
-        <exclude name="Squiz.ControlStructures.SwitchDeclaration.MissingDefault"/>
-    </rule>
-
-
-    <!-- PSR1 rules -->
-    <rule ref="PSR1.Classes.ClassDeclaration"/>
-    <rule ref="PSR1.Methods.CamelCapsMethodName"/>
-
-
-    <!-- PSR2 rules -->
-    <rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
-    <rule ref="PSR2.Namespaces.UseDeclaration"/>
-
-
-    <!-- Generic rules -->
-    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
-    <rule ref="Generic.Formatting.SpaceAfterCast"/> <!-- Disallow space after the cast operator -->
-    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
-    <rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter"/>
-    <rule ref="Generic.NamingConventions.InterfaceNameSuffix"/>
-    <rule ref="Generic.NamingConventions.TraitNameSuffix"/>
-    <rule ref="Generic.NamingConventions.ConstructorName"/>
-    <rule ref="Generic.NamingConventions.CamelCapsFunctionName">
-        <properties>
-            <property name="strict" value="false"/>
-        </properties>
-    </rule>
-    <rule ref="Generic.ControlStructures.DisallowYodaConditions"/>
-    <rule ref="Generic.Classes.DuplicateClassName"/>
-    <rule ref="Generic.Classes.OpeningBraceSameLine"/>
-    <rule ref="Generic.Functions.CallTimePassByReference"/>
-    <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie">
-        <properties>
-            <property name="checkFunctions" value="true"/>
-            <property name="checkClosures" value="false"/>
-        </properties>
-    </rule>
-    <rule ref="Generic.Strings.UnnecessaryStringConcat">
-        <properties>
-            <property name="allowMultiline" value="true"/>
-        </properties>
-    </rule>
-
-    <rule ref="Generic.PHP.BacktickOperator"/>
-    <rule ref="Generic.PHP.DeprecatedFunctions"/>
-    <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
-    <rule ref="Generic.PHP.DisallowRequestSuperglobal"/>
-    <rule ref="Generic.PHP.ForbiddenFunctions"/>
-    <rule ref="Generic.PHP.NoSilencedErrors"/>
-    <rule ref="Generic.PHP.RequireStrictTypes"/>
-
-    <rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
-        <exclude name="Generic.WhiteSpace.ArbitraryParenthesesSpacing.SpaceBeforeClose"/>
-    </rule>
-
-    <rule ref="Generic.Files.EndFileNewline"/>
-    <rule ref="Generic.Files.OneClassPerFile"/>
-    <rule ref="Generic.Files.OneInterfacePerFile"/>
-    <rule ref="Generic.Files.OneObjectStructurePerFile"/>
-    <rule ref="Generic.Files.OneTraitPerFile"/>
-    <rule ref="Generic.Files.LineLength">
+    <rule ref="Generic.Formatting.SpaceAfterCast"/> <!-- Spaces are necessary after casts -->
+    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/> <!-- Disallow space indentation, use tabs -->
+    <rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter"/> <!-- No space after the spread operator-->
+    <rule ref="Generic.Files.LineLength"> <!-- Limit line length to 180 characters, but allow no limit for absolute line length -->
         <properties>
             <property name="lineLimit" value="180"/>
             <property name="absoluteLineLimit" value="0"/>
             <property name="ignoreComments" value="true"/>
         </properties>
     </rule>
+    <rule ref="Squiz.Classes.LowercaseClassKeywords"/> <!-- Class keywords (class, interface, trait) must be lowercase -->
+    <rule ref="Squiz.NamingConventions.ValidVariableName"/> <!-- Variable names must be in camelCase, e.g., $myVariable -->
+    <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/> <!-- One space after language constructs, e.g., echo, new, require, include, etc. -->
+    <rule ref="PSR12.Classes.ClosingBrace"/>
+    <rule ref="PSR12.Keywords.ShortFormTypeKeywords"/> <!-- Use short form type keywords, e.g., int, string, bool, array, etc. -->
 
-    <rule ref="Generic.CodeAnalysis.EmptyStatement">
-        <exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedCatch"/>
+
+    <!-- Files -->
+    <rule ref="Generic.PHP.RequireStrictTypes"/> <!-- Require strict types declaration, e.g., declare(strict_types=1); at the top of the file -->
+    <rule ref="Generic.Files.EndFileNewline"/> <!-- Require a newline at the end of the file -->
+
+
+    <!-- Operators -->
+    <rule ref="PSR12.Operators.OperatorSpacing"/> <!-- Operator spacing (spaces around operators) -->
+    <rule ref="SRG.WhiteSpace.OperatorSpacing"/>
+    <rule ref="Squiz.Operators.IncrementDecrementUsage"/> <!-- Check correct usage of increment/decrement operators -->
+    <rule ref="Squiz.Operators.ValidLogicalOperators"/> <!-- Check valid logical operators. Only && and || are allowed, not `and` and `or` -->
+    <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/> <!-- Spacing around logical operators, 1 space before and after -->
+    <rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing"/> <!-- Spacing around object operator (->), no space before -->
+
+
+    <!-- Control structures (if, for, while, switch, match, etc.) -->
+    <rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/> <!-- Control structure spacing rules -->
+    <rule ref="PSR12.ControlStructures.ControlStructureSpacing"> <!-- Control structure spacing rules from PSR-12, Overwrite it -->
+        <exclude name="PSR12.ControlStructures.ControlStructureSpacing.LineIndent"/> <!-- This rule requires spaces, we have tabs -->
     </rule>
-    <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
-    <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
-    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
-    <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
-    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
-        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClass"/>
+    <rule ref="Squiz.ControlStructures.SwitchDeclaration"> <!-- Switch statement formatting rules -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/> <!-- Turn off because it requires spaces, we have tabs -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterBreak"/> <!-- Do not require blank lines after break -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.MissingDefault"/> <!-- Allow switch without a default case -->
+    </rule>
+    <rule ref="Generic.ControlStructures.DisallowYodaConditions"/> <!-- Disallow Yoda conditions, e.g., if ('value' === $variable) -->
+    <rule ref="Generic.CodeAnalysis.EmptyStatement"> <!-- Disallow empty statements, e.g., ;, empty for loops, etc. -->
+        <exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedCatch"/> <!-- Allow empty catch blocks, e.g., try { ... } catch (Exception $e) { } -->
+    </rule>
+    <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/> <!-- Disallow for loops with function calls in the test condition, e.g., for ($i = 0; $i < count($array); $i++) -->
+    <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/> <!-- Disallow size functions (count, sizeof) in loops, e.g., for ($i = 0; $i < count($array); $i++) -->
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/> <!-- Disallow unconditional if statements, e.g., if (true) { ... } -->
+    <rule ref="Squiz.Commenting.EmptyCatchComment"/> <!-- Empty catch blocks should have a comment explaining why they are empty -->
+    <rule ref="Squiz.ControlStructures.InlineIfDeclaration"> <!-- Inline if statement formatting rules -->
+        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NoBrackets"/> <!-- Allow inline if statements without brackets, e.g., $value = $condition ? 'yes' : 'no'; -->
+        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine"/> <!-- Allow short ifs in multiline format -->
+    </rule>
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/> <!-- Closing brace alignment -->
+    <rule ref="PSR12.ControlStructures.BooleanOperatorPlacement"/> <!-- Boolean operator placement rules, e.g., && and || should be placed at the end of the line -->
+
+
+    <!--Arrays-->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/> <!-- Disallow long array syntax, use short array syntax -->
+    <rule ref="Squiz.Arrays.ArrayDeclaration">
+        <exclude name="Squiz.Arrays.ArrayDeclaration.NoCommaAfterLast"/> <!-- Allow no comma after the last element in single-line arrays -->
+        <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/> <!-- Allow multiline arrays in case of single item -->
+        <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/> <!-- Allow single-line arrays in case of multiple items -->
+    </rule>
+    <rule ref="Squiz.Arrays.ArrayBracketSpacing"/> <!-- Array bracket spacing rules, e.g., no space before and after brackets -->
+
+
+    <!-- Classes -->
+
+    <!-- General class rules -->
+    <rule ref="PSR1.Classes.ClassDeclaration"/> <!-- Class declaration rules from PSR-1, e.g., one class per file, class names matches file names -->
+    <rule ref="Generic.Files.OneClassPerFile"/> <!-- Require one class per file -->
+    <rule ref="Generic.Files.OneInterfacePerFile"/> <!-- Require one interface per file -->
+    <rule ref="Generic.Files.OneObjectStructurePerFile"/> <!-- Require one object structure per file, e.g., class, interface, trait -->
+    <rule ref="Generic.Files.OneTraitPerFile"/> <!-- Require one trait per file -->
+    <rule ref="Generic.NamingConventions.InterfaceNameSuffix"/> <!-- Interface names must end with "Interface" -->
+    <rule ref="Generic.NamingConventions.TraitNameSuffix"/> <!-- Trait names must end with "Trait" -->
+    <rule ref="Generic.Classes.DuplicateClassName"/> <!-- Disallow duplicate class names, e.g., two classes with the same name in different files -->
+    <rule ref="Generic.Classes.OpeningBraceSameLine"/> <!-- Opening brace for classes must be on the same line as the class declaration - K&R style -->
+    <rule ref="Squiz.Classes.ClassFileName"/> <!-- Class file name must match class name, e.g., class MyClass must be in MyClass.php file -->
+
+
+    <!-- Namespaces, imports, and use statements -->
+    <rule ref="PSR2.Namespaces.NamespaceDeclaration"/> <!-- Namespace is the first (except for declare), blank lines before and after, single line -->
+    <rule ref="PSR2.Namespaces.UseDeclaration"/> <!-- After namespace, one per line, no blank lines between uses, blank lines before and after use statements -->
+    <rule ref="PSR12.Traits.UseDeclaration"> <!-- Verify trait use declarations -->
+        <exclude name="PSR12.Traits.UseDeclaration.UseAfterBrace"/> <!-- Allow empty lines before class opening brace -->
+    </rule>
+
+    <!-- Class properties and constants -->
+    <rule ref="Squiz.Scope.MemberVarScope"/>
+    <rule ref="Squiz.WhiteSpace.MemberVarSpacing"/>
+
+    <!-- Class methods -->
+    <rule ref="Generic.NamingConventions.ConstructorName"/> <!-- Disallow old-style constructor names, use __construct() -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName"/> <!-- Method names must be in camelCase according to PSR-1 -->
+    <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/> <!-- Disallow unnecessary final modifier on methods if class is already final -->
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"> <!-- Disallow unused function parameters -->
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClass"/> <!-- Allow unused parameters in extended classes -->
         <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed"/>
         <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed"/>
-        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterface"/>
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterface"/> <!-- Allow unused parameters in implemented interfaces -->
         <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceBeforeLastUsed"/>
         <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceAfterLastUsed"/>
     </rule>
-    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/> <!-- Disallow overriding methods that do not change the behavior of the parent method -->
+    <rule ref="Squiz.NamingConventions.ValidFunctionName"/> <!-- Function names must be in camelCase, e.g., myFunction() -->
+    <rule ref="Squiz.Scope.StaticThisUsage"/> <!-- Disallow usage of $this in static methods, use self:: instead -->
 
 
-    <rule ref="Generic.Metrics.CyclomaticComplexity">
+    <!-- Functions -->
+    <rule ref="Squiz.WhiteSpace.FunctionSpacing"/> <!--Spacing between functions and methods (2 lines) -->
+    <rule ref="Generic.NamingConventions.CamelCapsFunctionName"> <!-- Function names must be in camelCase -->
         <properties>
-            <property name="complexity" value="50"/>
-            <property name="absoluteComplexity" value="100"/>
+            <property name="strict" value="false"/> <!-- Allow 2 uppercase letters after each other, e.g., "getHTTPResponse" -->
         </properties>
     </rule>
-    <rule ref="Generic.Metrics.NestingLevel">
+    <rule ref="Generic.Functions.CallTimePassByReference"/> <!-- Disallow call-time pass by reference, e.g., function(&$value) -->
+    <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"> <!-- Opening brace for functions must be on the same line as the function declaration - K&R style -->
+        <properties>
+            <property name="checkFunctions" value="true"/>
+            <!-- <property name="checkClosures" value="false"/> @TODO It was set to false, should check if it is a problem -->
+        </properties>
+    </rule>
+    <rule ref="Squiz.Functions.FunctionDuplicateArgument"/> <!-- Disallow duplicate function arguments, e.g., function($a, $b, $a) -->
+    <rule ref="Squiz.PHP.InnerFunctions"/> <!-- Disallow inner functions, e.g., function inside another function -->
+    <rule ref="PSR12.Functions.NullableTypeDeclaration"/> <!-- Parameters with null default value should have nullable type declaration, e.g., ?string $param = null -->
+    <rule ref="PSR12.Functions.ReturnTypeDeclaration"/>
+
+
+    <!-- Strings -->
+    <rule ref="Generic.Strings.UnnecessaryStringConcat"> <!-- Disallow unnecessary string concatenation, e.g., $string = 'Hello' . 'World' -->
+        <properties>
+            <property name="allowMultiline" value="true"/> <!-- Allow multiline string concatenation -->
+        </properties>
+    </rule>
+
+
+    <!-- Other -->
+    <rule ref="Generic.PHP.DisallowRequestSuperglobal"/> <!-- Disallow usage of $_REQUEST superglobal, use $_GET and $_POST instead -->
+    <rule ref="Generic.PHP.NoSilencedErrors"/> <!-- Disallow silenced errors, e.g., @function_call() -->
+    <rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/> <!-- Arbitrary sets of parentheses should have no spaces inside. -->
+    <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/> <!-- Disallow jumbled incrementers, e.g., $i++ + $i-- in the same code block -->
+    <rule ref="Squiz.PHP.CommentedOutCode"> <!-- Disallow commented-out code -->
+        <properties>
+            <property name="maxPercentage" value="70"/> <!-- Allow up to 70% of commented-out code in a file -->
+        </properties>
+    </rule>
+    <rule ref="Squiz.PHP.DiscouragedFunctions"/> <!-- Disallow discouraged functions, e.g., error_log(), print_r(), var_dump() -->
+    <rule ref="Squiz.PHP.Eval"/> <!-- Disallow eval() function -->
+    <rule ref="Squiz.PHP.NonExecutableCode"/> <!-- Disallow non-executable code -->
+
+
+    <!-- Metrics -->
+    <rule ref="Generic.Metrics.CyclomaticComplexity"> <!-- Cyclomatic complexity should not exceed 50 -->
+        <properties>
+            <property name="complexity" value="50"/>
+            <property name="absoluteComplexity" value="100"/> <!-- Absolute complexity limit -->
+        </properties>
+    </rule>
+    <rule ref="Generic.Metrics.NestingLevel"> <!-- Nesting level should not exceed 5 -->
         <properties>
             <property name="nestingLevel" value="5"/>
             <property name="absoluteNestingLevel" value="10"/>
@@ -132,108 +200,9 @@
     </rule>
 
 
-    <rule ref="SRG.WhiteSpace.OperatorSpacing"/>
+    <!-- Comments -->
+    <rule ref="Squiz.Commenting.DocCommentAlignment"/> <!-- Formats stars in doc comments -->
 
-
-    <rule ref="Squiz.Classes.LowercaseClassKeywords"/>
-
-    <rule ref="Squiz.Arrays.ArrayDeclaration">
-        <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.NoComma"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.NoCommaAfterLast"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
-        <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
-    </rule>
-    <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
-
-    <rule ref="Squiz.Classes.ClassFileName"/>
-    <rule ref="Squiz.Commenting.DocCommentAlignment">
-        <exclude name="Squiz.Commenting.DocCommentAlignment.SpaceAfterStar"/>
-    </rule>
-    <rule ref="Squiz.Commenting.EmptyCatchComment"/>
-    <rule ref="Squiz.Commenting.FunctionComment">
-        <exclude name="Squiz.Commenting.FunctionComment.Missing"/>
-        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
-        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
-        <exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
-        <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
-        <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/>
-        <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
-        <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/>
-        <exclude name="Squiz.Commenting.FunctionComment.InvalidTypeHint"/>
-        <exclude name="Squiz.Commenting.FunctionComment.MissingParamName"/>
-        <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/>
-        <exclude name="Squiz.Commenting.FunctionComment.ParamCommentNotCapital"/>
-        <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
-    </rule>
-
-    <rule ref="Squiz.ControlStructures.InlineIfDeclaration">
-        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NoBrackets"/>
-        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine"/> <!--Required () sometimes-->
-    </rule>
-
-    <rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
-    <rule ref="Squiz.NamingConventions.ValidFunctionName">
-        <exclude name="Squiz.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
-    </rule>
-    <rule ref="Squiz.NamingConventions.ValidVariableName">
-        <exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
-    </rule>
-    <rule ref="Squiz.Operators.IncrementDecrementUsage"/>
-    <rule ref="Squiz.Operators.ValidLogicalOperators"/>
-    <rule ref="Squiz.PHP.CommentedOutCode">
-        <properties>
-            <property name="maxPercentage" value="70"/>
-        </properties>
-    </rule>
-    <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
-    <rule ref="Squiz.PHP.DiscouragedFunctions"/>
-    <rule ref="Squiz.PHP.Eval"/>
-    <rule ref="Squiz.PHP.InnerFunctions"/>
-    <rule ref="Squiz.PHP.NonExecutableCode"/>
-    <rule ref="Squiz.Scope.MemberVarScope"/>
-    <rule ref="Squiz.Scope.StaticThisUsage"/>
-    <rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
-    <rule ref="Squiz.WhiteSpace.FunctionSpacing"/>
-    <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
-    <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
-    <rule ref="Squiz.WhiteSpace.MemberVarSpacing"/>
-    <rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing"/>
-    <rule ref="Squiz.WhiteSpace.PropertyLabelSpacing"/>
-    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
-    <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
-
-
-    <rule ref="MySource.PHP.EvalObjectFactory"/>
-
-    <rule ref="PEAR.ControlStructures.ControlSignature"/>
-    <rule ref="PEAR.Functions.FunctionDeclaration">
-        <exclude name="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
-    </rule>
-
-
-    <!--<rule ref="PSR12.Classes.AnonClassDeclaration"/>-->
-    <rule ref="PSR12.Classes.ClosingBrace"/>
-    <rule ref="PSR12.ControlStructures.BooleanOperatorPlacement"/>
-
-    <rule ref="PSR12.Functions.NullableTypeDeclaration"/>
-    <rule ref="PSR12.Functions.ReturnTypeDeclaration"/>
-    <rule ref="PSR12.Keywords.ShortFormTypeKeywords"/>
-    <rule ref="PSR12.Operators.OperatorSpacing">
-        <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceBefore"/>
-        <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceAfter"/>
-    </rule>
-    <rule ref="PSR12.Traits.UseDeclaration">
-        <exclude name="PSR12.Traits.UseDeclaration.UseAfterBrace"/>
-    </rule>
-
-
-    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint">
-        <exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification"/>
-    </rule>
 
     <arg name="colors"/>
     <ini name="memory_limit" value="128M"/>
