@@ -1,299 +1,241 @@
 <?xml version="1.0"?>
 <ruleset name="SRG">
 
-	<description>SRG coding standards</description>
+    <description>SRG coding standards</description>
 
-	<arg name="tab-width" value="4"/>
+    <arg name="tab-width" value="4"/>
 
-	<rule ref="PSR2">
-		<exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
-		<exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
-		<exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/>
-		<exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/>
-		<exclude name="PSR1.Files.SideEffects"/>
-	</rule>
-
-	<!--<rule ref="Generic.Formatting.SpaceAfterNot" />-->
-	<rule ref="PSR2.Methods.MethodDeclaration"/>
-
-	<!-- PSR1 rules -->
-	<rule ref="PSR1.Classes.ClassDeclaration"/>
-	<rule ref="PSR1.Methods.CamelCapsMethodName"/>
+    <rule ref="PSR12">
+        <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
+        <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
+        <exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/>
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/>
+        <exclude name="PSR1.Files.SideEffects"/>
+        <exclude name="PSR2.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+        <exclude name="PSR2.Functions.FunctionCallSignature.CloseBracketLine"/>
+    </rule>
 
 
-
-	<!-- PSR2 rules -->
-	<rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
-	<rule ref="PSR2.Namespaces.UseDeclaration"/>
-
-	<rule ref="PSR2.Classes.PropertyDeclaration"/>
-
-	<rule ref="PSR2.Methods.FunctionCallSignature"/>
-	<rule ref="PSR2.Methods.FunctionClosingBrace"/>
-
-	<rule ref="PSR2.ControlStructures.ControlStructureSpacing"/>
-	<rule ref="PSR2.ControlStructures.SwitchDeclaration"/>
-	<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
-	<rule ref="PSR2.Files.EndFileNewline"/>
-
-
-	<!-- Generic rules -->
-	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
-	<rule ref="Generic.Formatting.SpaceAfterCast"/>
-
-	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
-	<rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter"/>
-	<rule ref="Generic.WhiteSpace.ScopeIndent">
-		<properties>
-			<property name="indent" value="4"/>
-			<property name="tabIndent" value="true"/>
-		</properties>
-	</rule>
-
-	<rule ref="Generic.NamingConventions.InterfaceNameSuffix"/>
-	<rule ref="Generic.NamingConventions.TraitNameSuffix"/>
-	<rule ref="Generic.NamingConventions.ConstructorName"/>
-	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
-	<rule ref="Generic.NamingConventions.CamelCapsFunctionName">
-		<properties>
-			<property name="strict" value="false"/>
-		</properties>
-	</rule>
-
-	<!--<rule ref="Generic.Commenting.Todo"/>-->
-	<rule ref="Generic.Commenting.Fixme"/>
-
-	<rule ref="Generic.ControlStructures.DisallowYodaConditions"/>
-
-	<rule ref="Generic.Classes.DuplicateClassName"/>
-	<rule ref="Generic.Classes.OpeningBraceSameLine"/>
-
-	<rule ref="Generic.Functions.CallTimePassByReference"/>
-	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie">
-		<properties>
-			<property name="checkFunctions" value="true"/>
-			<property name="checkClosures" value="false"/>
-		</properties>
-	</rule>
-
-	<rule ref="Generic.Strings.UnnecessaryStringConcat">
-		<properties>
-			<property name="allowMultiline" value="true"/>
-		</properties>
-	</rule>
-
-	<rule ref="Generic.PHP.BacktickOperator"/>
-	<rule ref="Generic.PHP.DeprecatedFunctions"/>
-	<rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
-	<rule ref="Generic.PHP.DisallowAlternativePHPTags"/>
-	<rule ref="Generic.PHP.DisallowRequestSuperglobal"/>
-	<rule ref="Generic.PHP.ForbiddenFunctions"/>
-	<rule ref="Generic.PHP.LowerCaseKeyword"/>
-	<rule ref="Generic.PHP.LowerCaseType"/>
-	<rule ref="Generic.PHP.NoSilencedErrors"/>
-	<rule ref="./vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/PHP/RequireStrictTypesSniff.php"/>
-
-	<rule ref="Generic.Strings.UnnecessaryStringConcat"/>
-
-	<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
-		<exclude name="Generic.WhiteSpace.ArbitraryParenthesesSpacing.SpaceBeforeClose"/>
-	</rule>
-
-	<rule ref="Generic.Files.EndFileNewline"/>
-	<rule ref="Generic.Files.OneClassPerFile"/>
-	<rule ref="Generic.Files.OneInterfacePerFile"/>
-	<rule ref="Generic.Files.OneObjectStructurePerFile"/>
-	<rule ref="Generic.Files.OneTraitPerFile"/>
-	<rule ref="Generic.Files.LineLength">
-		<properties>
-			<property name="lineLimit" value="180"/>
-			<property name="absoluteLineLimit" value="0" />
-			<property name="ignoreComments" value="true" />
-		</properties>
-	</rule>
-
-	<rule ref="Generic.CodeAnalysis.EmptyStatement">
-		<exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedCatch"/>
-	</rule>
-	<rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
-	<rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
-	<rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
-	<rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
-	<!--<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"> @TODO put back if will support promoted properties
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClass"/>
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed"/>
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed"/>
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterface"/>
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceBeforeLastUsed"/>
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceAfterLastUsed"/>
-	</rule>-->
-	<!--<rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/> @TODO Include if will support promoted properties-->
+    <!-- Overwrite PSR12, allows tabs -->
+    <rule ref="Generic.WhiteSpace.ScopeIndent">
+        <properties>
+            <property name="indent" value="4"/>
+            <property name="tabIndent" value="true"/>
+        </properties>
+    </rule>
+    <!-- Overwrite PSR12, -->
+    <rule ref="PSR12.ControlStructures.ControlStructureSpacing">
+        <exclude name="PSR12.ControlStructures.ControlStructureSpacing.FirstExpressionLine"/>
+        <exclude name="PSR12.ControlStructures.ControlStructureSpacing.CloseParenthesisLine"/>
+        <exclude name="PSR12.ControlStructures.ControlStructureSpacing.LineIndent"/>
+    </rule>
+    <rule ref="Squiz.ControlStructures.SwitchDeclaration">
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/>
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterBreak"/>
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.MissingDefault"/>
+    </rule>
 
 
-	<rule ref="Generic.Metrics.CyclomaticComplexity">
-		<properties>
-			<property name="complexity" value="50"/>
-			<property name="absoluteComplexity" value="100"/>
-		</properties>
-	</rule>
-	<rule ref="Generic.Metrics.NestingLevel">
-		<properties>
-			<property name="nestingLevel" value="5"/>
-			<property name="absoluteNestingLevel" value="10"/>
-		</properties>
-	</rule>
+    <!-- PSR1 rules -->
+    <rule ref="PSR1.Classes.ClassDeclaration"/>
+    <rule ref="PSR1.Methods.CamelCapsMethodName"/>
 
 
-	<!-- Squiz rules -->
-	<rule ref="Squiz.WhiteSpace.FunctionSpacing"/>
-	<rule ref="Squiz.WhiteSpace.MemberVarSpacing"/>
-	<rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing">
-		<properties>
-			<property name="ignoreNewlines" value="true"></property>
-		</properties>
-	</rule>
-	<rule ref="SRG.WhiteSpace.OperatorSpacing"/>
-	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
-	<rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
-
-	<rule ref="Squiz.Classes.LowercaseClassKeywords"/>
-
-	<rule ref="Squiz.Arrays.ArrayDeclaration">
-		<exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
-		<exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
-		<exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
-		<exclude name="Squiz.Arrays.ArrayDeclaration.NoComma"/>
-		<exclude name="Squiz.Arrays.ArrayDeclaration.NoCommaAfterLast"/>
-		<exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
-		<exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
-		<exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
-	</rule>
-	<rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
-
-	<!--<rule ref="Squiz.Classes.ClassDeclaration"/>-->
-	<rule ref="Squiz.Classes.ClassFileName"/>
-	<rule ref="Squiz.Classes.LowercaseClassKeywords"/>
-	<rule ref="Squiz.Classes.ValidClassName"/>
-	<rule ref="Squiz.Commenting.DocCommentAlignment">
-		<exclude name="Squiz.Commenting.DocCommentAlignment.SpaceAfterStar"/>
-	</rule>
-	<rule ref="Squiz.Commenting.EmptyCatchComment"/>
-	<rule ref="Squiz.Commenting.FunctionComment">
-		<exclude name="Squiz.Commenting.FunctionComment.Missing"/>
-		<exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
-		<exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
-		<exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
-		<exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
-		<exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/> <!--@TODO Include if parent classes has type declarations-->
-		<exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/> <!--@TODO Include if parent classes has type declarations-->
-		<exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/> <!--@TODO Do not ignore non-void missing return, but create an exception for void return-->
-		<exclude name="Squiz.Commenting.FunctionComment.InvalidTypeHint"/> <!--@TODO Include it when will support mixed type-->
-		<exclude name="Squiz.Commenting.FunctionComment.MissingParamName"/>
-		<exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/> <!--@TODO Put back if will support short types (int, bool)-->
-		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentNotCapital"/>
-		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
-	</rule>
-	<rule ref="Squiz.Commenting.FunctionCommentThrowTag">
-		<exclude name="Squiz.Commenting.FunctionCommentThrowTag.WrongNumber"/>
-		<exclude name="Squiz.Commenting.FunctionCommentThrowTag.Missing"/> <!--@TODO It doesn't support extended exceptions -->
-	</rule>
-
-	<rule ref="Squiz.ControlStructures.ControlSignature"/>
-	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
-	<rule ref="Squiz.ControlStructures.ForLoopDeclaration"/>
-	<rule ref="Squiz.ControlStructures.InlineIfDeclaration">
-		<exclude name="Squiz.ControlStructures.InlineIfDeclaration.NoBrackets"/>
-		<exclude name="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine"/> <!--Required () sometimes-->
-	</rule>
-	<rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
-	<rule ref="Squiz.ControlStructures.SwitchDeclaration">
-		<exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/>
-		<exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterBreak"/>
-		<exclude name="Squiz.ControlStructures.SwitchDeclaration.MissingDefault"/>
-	</rule>
-
-	<rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing"/>
-	<rule ref="Squiz.Functions.FunctionDeclaration"/>
-	<rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
-	<rule ref="Squiz.Functions.LowercaseFunctionKeywords"/>
-	<rule ref="Squiz.Functions.MultiLineFunctionDeclaration"/>
-	<rule ref="Squiz.NamingConventions.ValidFunctionName">
-		<exclude name="Squiz.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
-	</rule>
-	<rule ref="Squiz.NamingConventions.ValidVariableName">
-		<exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
-	</rule>
-	<rule ref="Squiz.Operators.IncrementDecrementUsage"/>
-	<rule ref="Squiz.Operators.ValidLogicalOperators"/>
-	<rule ref="Squiz.PHP.CommentedOutCode">
-		<properties>
-			<property name="maxPercentage" value="70"/>
-		</properties>
-	</rule>
-	<rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
-	<rule ref="Squiz.PHP.DiscouragedFunctions"/>
-	<rule ref="Squiz.PHP.Eval"/>
-	<rule ref="Squiz.PHP.InnerFunctions"/>
-	<rule ref="Squiz.PHP.NonExecutableCode"/>
-	<rule ref="Squiz.Scope.MemberVarScope"/>
-	<rule ref="Squiz.Scope.MethodScope"/>
-	<rule ref="Squiz.Scope.StaticThisUsage"/>
-	<rule ref="Squiz.WhiteSpace.CastSpacing"/>
-	<rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
-	<rule ref="Squiz.WhiteSpace.FunctionSpacing"/>
-	<rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
-	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
-	<rule ref="Squiz.WhiteSpace.MemberVarSpacing"/>
-	<rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing"/>
-	<rule ref="Squiz.WhiteSpace.PropertyLabelSpacing"/>
-	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
-	<rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing"/>
-	<rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
-	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
-
-	<rule ref="Squiz.Operators.ValidLogicalOperators"/>
+    <!-- PSR2 rules -->
+    <rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
+    <rule ref="PSR2.Namespaces.UseDeclaration"/>
 
 
-	<!-- Zend rules -->
-	<rule ref="Zend.Files.ClosingTag"/>
+    <!-- Generic rules -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Generic.Formatting.SpaceAfterCast"/> <!-- Disallow space after the cast operator -->
+    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+    <rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter"/>
+    <rule ref="Generic.NamingConventions.InterfaceNameSuffix"/>
+    <rule ref="Generic.NamingConventions.TraitNameSuffix"/>
+    <rule ref="Generic.NamingConventions.ConstructorName"/>
+    <rule ref="Generic.NamingConventions.CamelCapsFunctionName">
+        <properties>
+            <property name="strict" value="false"/>
+        </properties>
+    </rule>
+    <rule ref="Generic.ControlStructures.DisallowYodaConditions"/>
+    <rule ref="Generic.Classes.DuplicateClassName"/>
+    <rule ref="Generic.Classes.OpeningBraceSameLine"/>
+    <rule ref="Generic.Functions.CallTimePassByReference"/>
+    <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie">
+        <properties>
+            <property name="checkFunctions" value="true"/>
+            <property name="checkClosures" value="false"/>
+        </properties>
+    </rule>
+    <rule ref="Generic.Strings.UnnecessaryStringConcat">
+        <properties>
+            <property name="allowMultiline" value="true"/>
+        </properties>
+    </rule>
+
+    <rule ref="Generic.PHP.BacktickOperator"/>
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+    <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
+    <rule ref="Generic.PHP.DisallowRequestSuperglobal"/>
+    <rule ref="Generic.PHP.ForbiddenFunctions"/>
+    <rule ref="Generic.PHP.NoSilencedErrors"/>
+    <rule ref="Generic.PHP.RequireStrictTypes"/>
+
+    <rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
+        <exclude name="Generic.WhiteSpace.ArbitraryParenthesesSpacing.SpaceBeforeClose"/>
+    </rule>
+
+    <rule ref="Generic.Files.EndFileNewline"/>
+    <rule ref="Generic.Files.OneClassPerFile"/>
+    <rule ref="Generic.Files.OneInterfacePerFile"/>
+    <rule ref="Generic.Files.OneObjectStructurePerFile"/>
+    <rule ref="Generic.Files.OneTraitPerFile"/>
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="180"/>
+            <property name="absoluteLineLimit" value="0"/>
+            <property name="ignoreComments" value="true"/>
+        </properties>
+    </rule>
+
+    <rule ref="Generic.CodeAnalysis.EmptyStatement">
+        <exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedCatch"/>
+    </rule>
+    <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
+    <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+    <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClass"/>
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed"/>
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed"/>
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterface"/>
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceBeforeLastUsed"/>
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceAfterLastUsed"/>
+    </rule>
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
 
 
-	<rule ref="MySource.PHP.EvalObjectFactory"/>
-
-	<rule ref="PEAR.ControlStructures.ControlSignature"/>
-	<rule ref="PEAR.Functions.FunctionCallSignature">
-		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
-		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
-	</rule>
-	<rule ref="PEAR.Functions.FunctionDeclaration">
-		<exclude name="PEAR.Functions.FunctionDeclaration.BraceOnSameLine" />
-	</rule>
-	<rule ref="PEAR.Functions.ValidDefaultValue"/>
-
-
-	<!--<rule ref="PSR12.Classes.AnonClassDeclaration"/>-->
-	<rule ref="PSR12.Classes.ClosingBrace"/>
-	<rule ref="PSR12.ControlStructures.BooleanOperatorPlacement"/>
-	<rule ref="PSR12.ControlStructures.ControlStructureSpacing">
-		<exclude name="PSR12.ControlStructures.ControlStructureSpacing.FirstExpressionLine"/>
-		<exclude name="PSR12.ControlStructures.ControlStructureSpacing.CloseParenthesisLine"/>
-		<exclude name="PSR12.ControlStructures.ControlStructureSpacing.LineIndent"/>
-	</rule>
-	<rule ref="PSR12.Functions.NullableTypeDeclaration"/>
-	<rule ref="PSR12.Functions.ReturnTypeDeclaration"/>
-	<rule ref="PSR12.Keywords.ShortFormTypeKeywords"/>
-	<rule ref="PSR12.Operators.OperatorSpacing">
-		<exclude name="PSR12.Operators.OperatorSpacing.NoSpaceBefore"/>
-		<exclude name="PSR12.Operators.OperatorSpacing.NoSpaceAfter"/>
-	</rule>
-	<rule ref="PSR12.Traits.UseDeclaration">
-		<exclude name="PSR12.Traits.UseDeclaration.UseAfterBrace"/>
-	</rule>
+    <rule ref="Generic.Metrics.CyclomaticComplexity">
+        <properties>
+            <property name="complexity" value="50"/>
+            <property name="absoluteComplexity" value="100"/>
+        </properties>
+    </rule>
+    <rule ref="Generic.Metrics.NestingLevel">
+        <properties>
+            <property name="nestingLevel" value="5"/>
+            <property name="absoluteNestingLevel" value="10"/>
+        </properties>
+    </rule>
 
 
-	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint"/>
+    <rule ref="SRG.WhiteSpace.OperatorSpacing"/>
 
-	<arg name="colors"/>
-	<ini name="memory_limit" value="128M"/>
+
+    <rule ref="Squiz.Classes.LowercaseClassKeywords"/>
+
+    <rule ref="Squiz.Arrays.ArrayDeclaration">
+        <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.NoComma"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.NoCommaAfterLast"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
+    </rule>
+    <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
+
+    <rule ref="Squiz.Classes.ClassFileName"/>
+    <rule ref="Squiz.Commenting.DocCommentAlignment">
+        <exclude name="Squiz.Commenting.DocCommentAlignment.SpaceAfterStar"/>
+    </rule>
+    <rule ref="Squiz.Commenting.EmptyCatchComment"/>
+    <rule ref="Squiz.Commenting.FunctionComment">
+        <exclude name="Squiz.Commenting.FunctionComment.Missing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
+        <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
+        <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/>
+        <exclude name="Squiz.Commenting.FunctionComment.InvalidTypeHint"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamName"/>
+        <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ParamCommentNotCapital"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
+    </rule>
+
+    <rule ref="Squiz.ControlStructures.InlineIfDeclaration">
+        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NoBrackets"/>
+        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine"/> <!--Required () sometimes-->
+    </rule>
+
+    <rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
+    <rule ref="Squiz.NamingConventions.ValidFunctionName">
+        <exclude name="Squiz.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
+    </rule>
+    <rule ref="Squiz.NamingConventions.ValidVariableName">
+        <exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+    </rule>
+    <rule ref="Squiz.Operators.IncrementDecrementUsage"/>
+    <rule ref="Squiz.Operators.ValidLogicalOperators"/>
+    <rule ref="Squiz.PHP.CommentedOutCode">
+        <properties>
+            <property name="maxPercentage" value="70"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
+    <rule ref="Squiz.PHP.DiscouragedFunctions"/>
+    <rule ref="Squiz.PHP.Eval"/>
+    <rule ref="Squiz.PHP.InnerFunctions"/>
+    <rule ref="Squiz.PHP.NonExecutableCode"/>
+    <rule ref="Squiz.Scope.MemberVarScope"/>
+    <rule ref="Squiz.Scope.StaticThisUsage"/>
+    <rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
+    <rule ref="Squiz.WhiteSpace.FunctionSpacing"/>
+    <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
+    <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
+    <rule ref="Squiz.WhiteSpace.MemberVarSpacing"/>
+    <rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing"/>
+    <rule ref="Squiz.WhiteSpace.PropertyLabelSpacing"/>
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
+    <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+
+
+    <rule ref="MySource.PHP.EvalObjectFactory"/>
+
+    <rule ref="PEAR.ControlStructures.ControlSignature"/>
+    <rule ref="PEAR.Functions.FunctionDeclaration">
+        <exclude name="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+    </rule>
+
+
+    <!--<rule ref="PSR12.Classes.AnonClassDeclaration"/>-->
+    <rule ref="PSR12.Classes.ClosingBrace"/>
+    <rule ref="PSR12.ControlStructures.BooleanOperatorPlacement"/>
+
+    <rule ref="PSR12.Functions.NullableTypeDeclaration"/>
+    <rule ref="PSR12.Functions.ReturnTypeDeclaration"/>
+    <rule ref="PSR12.Keywords.ShortFormTypeKeywords"/>
+    <rule ref="PSR12.Operators.OperatorSpacing">
+        <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceBefore"/>
+        <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceAfter"/>
+    </rule>
+    <rule ref="PSR12.Traits.UseDeclaration">
+        <exclude name="PSR12.Traits.UseDeclaration.UseAfterBrace"/>
+    </rule>
+
+
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint">
+        <exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification"/>
+    </rule>
+
+    <arg name="colors"/>
+    <ini name="memory_limit" value="128M"/>
 
 </ruleset>
