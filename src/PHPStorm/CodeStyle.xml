@@ -20,7 +20,6 @@
   </JSCodeStyleSettings>
   <PHPCodeStyleSettings>
     <option name="ALIGN_KEY_VALUE_PAIRS" value="true" />
-    <option name="ALIGN_PHPDOC_PARAM_NAMES" value="true" />
     <option name="ALIGN_PHPDOC_COMMENTS" value="true" />
     <option name="PHPDOC_BLANK_LINES_AROUND_PARAMETERS" value="true" />
     <option name="LOWER_CASE_BOOLEAN_CONST" value="true" />
@@ -33,7 +32,6 @@
     <option name="ALIGN_CLASS_CONSTANTS" value="true" />
     <option name="SPACES_WITHIN_SHORT_ECHO_TAGS" value="false" />
     <option name="FORCE_SHORT_DECLARATION_ARRAY_STYLE" value="true" />
-    <option name="SPACE_AROUND_ASSIGNMENT_IN_DECLARE" value="true" />
   </PHPCodeStyleSettings>
   <codeStyleSettings language="Blade">
     <indentOptions>
@@ -92,6 +90,8 @@
     </indentOptions>
   </codeStyleSettings>
   <codeStyleSettings language="JSON">
+    <option name="RIGHT_MARGIN" value="300" />
+    <option name="SOFT_MARGINS" value="180" />
     <indentOptions>
       <option name="INDENT_SIZE" value="4" />
       <option name="USE_TAB_CHARACTER" value="true" />
@@ -135,14 +135,14 @@
     <option name="KEEP_BLANK_LINES_BEFORE_RBRACE" value="1" />
     <option name="BLANK_LINES_AROUND_FIELD" value="1" />
     <option name="BLANK_LINES_AROUND_METHOD" value="2" />
-    <option name="BLANK_LINES_AFTER_CLASS_HEADER" value="1" />
+    <option name="BLANK_LINES_AFTER_CLASS_HEADER" value="2" />
+    <option name="BLANK_LINES_BEFORE_CLASS_END" value="2" />
     <option name="CLASS_BRACE_STYLE" value="1" />
     <option name="METHOD_BRACE_STYLE" value="1" />
     <option name="SPECIAL_ELSE_IF_TREATMENT" value="true" />
     <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
     <option name="ALIGN_MULTILINE_FOR" value="false" />
     <option name="ALIGN_MULTILINE_EXTENDS_LIST" value="true" />
-    <option name="SPACE_AROUND_UNARY_OPERATOR" value="true" />
     <option name="SPACE_AFTER_TYPE_CAST" value="true" />
     <option name="METHOD_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
     <option name="METHOD_PARAMETERS_RPAREN_ON_NEXT_LINE" value="true" />
