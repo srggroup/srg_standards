@@ -322,7 +322,7 @@
     <rule ref="Generic.PHP.DisallowRequestSuperglobal"/> <!-- Disallow usage of $_REQUEST superglobal, use $_GET and $_POST instead -->
     <rule ref="Generic.PHP.NoSilencedErrors"/> <!-- Disallow silenced errors, e.g., @function_call() -->
 	<!--<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/>--> <!-- @TODO ez esetleg? kicsit borítja az if-eket Arbitrary sets of parentheses should have no spaces inside. -->
-    <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/> <!-- Disallow jumbled incrementers, e.g., $i++ + $i-- in the same code block -->
+    <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/> <!-- Disallow jumbled incrementers, e.g., $i++ and $i\-\- in the same code block -->
     <rule ref="Squiz.PHP.CommentedOutCode"> <!-- Disallow commented-out code -->
         <properties>
             <property name="maxPercentage" value="70"/> <!-- Allow up to 70% of commented-out code in a file -->
