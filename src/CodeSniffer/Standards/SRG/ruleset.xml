@@ -34,6 +34,7 @@
 		<exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFallbackGlobalName"/> <!-- Allow usage of global functions without importing -->
 		<exclude name="WebimpressCodingStandard.Formatting.RedundantParentheses.NestedTernary"/> <!-- Allow nested ternary operators with parentheses -->
 		<exclude name="WebimpressCodingStandard.Formatting.RedundantParentheses.MultipleExpression"/> <!-- Allow parentheses around multiple expressions -->
+		<exclude name="WebimpressCodingStandard.Formatting.RedundantParentheses.SingleEquality"/> <!-- Sometimes it fails with false positive -->
 		<exclude name="PSR12.Classes.ClassInstantiation.MissingParentheses"/> <!-- Allow class instantiation without parentheses -->
 		<exclude name="WebimpressCodingStandard.Strings.NoConcatenationAtTheEnd.ConcatenationAtTheEnd"/> <!-- Allow concatenation at the end of the line -->
 		<exclude name="WebimpressCodingStandard.NamingConventions.ValidVariableName.NotCamelCaps"/> <!-- Allow variable names not strictly in camelCase (e.g. accessTokenTTL) -->
@@ -41,6 +42,7 @@
 		<exclude name="WebimpressCodingStandard.NamingConventions.AbstractClass.Prefix"/> <!-- Allow abstract classes without prefix -->
 		<exclude name="Squiz.WhiteSpace.OperatorSpacing"/> <!-- Overwrote with SRG.WhiteSpace.OperatorSpacing below -->
 		<exclude name="PSR12.Operators.OperatorSpacing"/> <!-- Overwrote with SRG.WhiteSpace.OperatorSpacing below -->
+		<rule ref="WebimpressCodingStandard.Formatting.StringClassReference" phpcs-only="true"/>
 	</rule>
 
 
