@@ -22,7 +22,6 @@
 		<exclude name="Generic.Formatting.SpaceAfterNot"/> <!-- Allow no-space after logical not (!) operator -->
 		<exclude name="Generic.PHP.CharacterBeforePHPOpeningTag"/> <!-- Allow content before opening PHP tag -->
 		<exclude name="WebimpressCodingStandard.Arrays.Format"/> <!-- Allow whitespace around array brackets -->
-		<exclude name="WebimpressCodingStandard.Arrays.TrailingArrayComma"/> <!-- Allow missing trailing comma in multiline arrays -->
 		<exclude name="WebimpressCodingStandard.Classes.AlphabeticallySortedTraits"/> <!-- Do not require traits to be sorted alphabetically -->
 		<exclude name="WebimpressCodingStandard.Classes.NoNullValues"/> <!-- Allow class properties to have default null values -->
 		<exclude name="WebimpressCodingStandard.Methods.LineAfter"/> <!-- Do not require blank line between methods -->
@@ -94,8 +93,6 @@
 	<rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/> <!-- Control structure spacing rules -->
 	<rule ref="PSR12.ControlStructures.ControlStructureSpacing"> <!-- Control structure spacing rules from PSR-12, Overwrite it -->
 		<exclude name="PSR12.ControlStructures.ControlStructureSpacing.LineIndent"/> <!-- This rule requires spaces, we have tabs -->
-		<exclude name="PSR12.ControlStructures.ControlStructureSpacing.FirstExpressionLine"/> <!-- @todo Ez megbeszélés kérdése -->
-		<exclude name="PSR12.ControlStructures.ControlStructureSpacing.CloseParenthesisLine"/> <!-- @todo Ez megbeszélés kérdése -->
 	</rule>
 	<rule ref="Squiz.ControlStructures.SwitchDeclaration"> <!-- Switch statement formatting rules -->
 		<exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/> <!-- Turn off because it requires spaces, we have tabs -->
@@ -147,7 +144,6 @@
 			<property name="enableEmptyArrayCheck" value="true"/>
 		</properties>
 	</rule>
-	<!--<rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma"/> @todo Ezt hozzá kéne adni valamikor, csak elég nagy refactor -->
 
 
 	<!-- Classes -->
