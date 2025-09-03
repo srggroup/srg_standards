@@ -1,392 +1,396 @@
 <?xml version="1.0"?>
 <ruleset name="SRG">
 
-	<description>SRG coding standards</description>
+    <description>SRG coding standards</description>
 
-	<arg name="tab-width" value="4"/>
+    <arg name="tab-width" value="4"/>
 
-	<!-- Use PSR12 standard with couple of exceptions -->
-	<rule ref="PSR12">
-		<exclude name="Generic.WhiteSpace.DisallowTabIndent"/> <!-- Allow tab indentation -->
-		<exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/> <!-- Allow opening brace on the same line for classes -->
-		<exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/> <!-- Allow function brace on same line -->
-		<exclude name="PSR12.Classes.OpeningBraceSpace.Found"/> <!-- Allow empty line space after opening brace for classes -->
-		<exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/> <!-- Allow empty lines before closing brace of class -->
-		<exclude name="PSR12.Classes.AnonClassDeclaration.CloseBraceAfterBody"/> <!-- Allow empty lines before closing brace of class -->
-	</rule>
-
-
-	<!-- Use Laminas coding standard with couple of exceptions, and modifications -->
-	<rule ref="LaminasCodingStandard"> <!-- Laminas Coding Standard: strict coding conventions for PHP -->
-		<exclude name="Generic.Arrays.ArrayIndent"/> <!-- Allow tab indentation in arrays (default: 4 spaces) -->
-		<exclude name="Generic.Formatting.SpaceAfterNot"/> <!-- Allow no-space after logical not (!) operator -->
-		<exclude name="Generic.PHP.CharacterBeforePHPOpeningTag"/> <!-- Allow content before opening PHP tag -->
-		<exclude name="WebimpressCodingStandard.Arrays.Format"/> <!-- Allow whitespace around array brackets -->
-		<exclude name="WebimpressCodingStandard.Classes.AlphabeticallySortedTraits"/> <!-- Do not require traits to be sorted alphabetically -->
-		<exclude name="WebimpressCodingStandard.Classes.NoNullValues"/> <!-- Allow class properties to have default null values -->
-		<exclude name="WebimpressCodingStandard.Methods.LineAfter"/> <!-- Do not require blank line between methods -->
-		<exclude name="WebimpressCodingStandard.WhiteSpace.CommaSpacing"/> <!-- Allow flexible spacing after commas -->
-		<exclude name="WebimpressCodingStandard.WhiteSpace.BraceBlankLine.SpacingAfterOpen"/> <!-- Allow empty lines after opening brace -->
-		<exclude name="WebimpressCodingStandard.WhiteSpace.BraceBlankLine.SpacingBeforeClose"/> <!-- Allow empty lines before closing brace -->
-		<exclude name="WebimpressCodingStandard.WhiteSpace.BlankLine.BlankLine"/> <!-- Allow 2 blank lines -->
-		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSame"/> <!-- Allow multiple statements in consecutive lines without alignment -->
-		<exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFallbackGlobalName"/> <!-- Allow usage of global functions without importing -->
-		<exclude name="WebimpressCodingStandard.Formatting.RedundantParentheses.NestedTernary"/> <!-- Allow nested ternary operators with parentheses -->
-		<exclude name="WebimpressCodingStandard.Formatting.RedundantParentheses.MultipleExpression"/> <!-- Allow parentheses around multiple expressions -->
-		<exclude name="WebimpressCodingStandard.Formatting.RedundantParentheses.SingleEquality"/> <!-- Sometimes it fails with false positive -->
-		<exclude name="PSR12.Classes.ClassInstantiation.MissingParentheses"/> <!-- Allow class instantiation without parentheses -->
-		<exclude name="WebimpressCodingStandard.Strings.NoConcatenationAtTheEnd.ConcatenationAtTheEnd"/> <!-- Allow concatenation at the end of the line -->
-		<exclude name="WebimpressCodingStandard.NamingConventions.ValidVariableName.NotCamelCaps"/> <!-- Allow variable names not strictly in camelCase (e.g. accessTokenTTL) -->
-		<exclude name="WebimpressCodingStandard.PHP.CorrectClassNameCase"/> <!-- Fails in some cases, e.g. $this->property::class -->
-		<exclude name="WebimpressCodingStandard.NamingConventions.AbstractClass.Prefix"/> <!-- Allow abstract classes without prefix -->
-		<exclude name="Squiz.WhiteSpace.OperatorSpacing"/> <!-- Overwrote with SRG.WhiteSpace.OperatorSpacing below -->
-		<exclude name="PSR12.Operators.OperatorSpacing"/> <!-- Overwrote with SRG.WhiteSpace.OperatorSpacing below -->
-		<rule ref="WebimpressCodingStandard.Formatting.StringClassReference" phpcs-only="true"/>
-	</rule>
+    <!-- Use PSR12 standard with couple of exceptions -->
+    <rule ref="PSR12">
+        <exclude name="Generic.WhiteSpace.DisallowTabIndent"/> <!-- Allow tab indentation -->
+        <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/> <!-- Allow opening brace on the same line for classes -->
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/> <!-- Allow function brace on same line -->
+        <exclude name="PSR12.Classes.OpeningBraceSpace.Found"/> <!-- Allow empty line space after opening brace for classes -->
+        <exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody"/> <!-- Allow empty lines before closing brace of class -->
+        <exclude name="PSR12.Classes.AnonClassDeclaration.CloseBraceAfterBody"/> <!-- Allow empty lines before closing brace of class -->
+    </rule>
 
 
-	<!-- General styling -->
-	<rule ref="Generic.WhiteSpace.ScopeIndent"> <!-- Overwrite PSR12, allow tabs -->
-		<properties>
-			<property name="indent" value="4"/>
-			<property name="tabIndent" value="true"/>
-		</properties>
-	</rule>
-	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/> <!-- Disallow space indentation, use tabs -->
-	<rule ref="Generic.Files.LineLength"> <!-- Limit line length to 180 characters, but allow no limit for absolute line length -->
-		<properties>
-			<property name="lineLimit" value="180"/>
-			<property name="absoluteLineLimit" value="0"/>
-			<property name="ignoreComments" value="true"/>
-		</properties>
-	</rule>
-	<rule ref="Generic.WhiteSpace.LanguageConstructSpacing"/> <!-- One space after language constructs, e.g., echo, new, require, include, etc. -->
+    <!-- Use Laminas coding standard with couple of exceptions, and modifications -->
+    <rule ref="LaminasCodingStandard"> <!-- Laminas Coding Standard: strict coding conventions for PHP -->
+        <exclude name="Generic.Arrays.ArrayIndent"/> <!-- Allow tab indentation in arrays (default: 4 spaces) -->
+        <exclude name="Generic.Formatting.SpaceAfterNot"/> <!-- Allow no-space after logical not (!) operator -->
+        <exclude name="Generic.PHP.CharacterBeforePHPOpeningTag"/> <!-- Allow content before opening PHP tag -->
+        <exclude name="WebimpressCodingStandard.Arrays.Format"/> <!-- Allow whitespace around array brackets -->
+        <exclude name="WebimpressCodingStandard.Classes.AlphabeticallySortedTraits"/> <!-- Do not require traits to be sorted alphabetically -->
+        <exclude name="WebimpressCodingStandard.Classes.NoNullValues"/> <!-- Allow class properties to have default null values -->
+        <exclude name="WebimpressCodingStandard.Methods.LineAfter"/> <!-- Do not require blank line between methods -->
+        <exclude name="WebimpressCodingStandard.WhiteSpace.CommaSpacing"/> <!-- Allow flexible spacing after commas -->
+        <exclude name="WebimpressCodingStandard.WhiteSpace.BraceBlankLine.SpacingAfterOpen"/> <!-- Allow empty lines after opening brace -->
+        <exclude name="WebimpressCodingStandard.WhiteSpace.BraceBlankLine.SpacingBeforeClose"/> <!-- Allow empty lines before closing brace -->
+        <exclude name="WebimpressCodingStandard.WhiteSpace.BlankLine.BlankLine"/> <!-- Allow 2 blank lines -->
+        <exclude name="Generic.Formatting.MultipleStatementAlignment.NotSame"/> <!-- Allow multiple statements in consecutive lines without alignment -->
+        <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFallbackGlobalName"/> <!-- Allow usage of global functions without importing -->
+        <exclude name="WebimpressCodingStandard.Formatting.RedundantParentheses.NestedTernary"/> <!-- Allow nested ternary operators with parentheses -->
+        <exclude name="WebimpressCodingStandard.Formatting.RedundantParentheses.MultipleExpression"/> <!-- Allow parentheses around multiple expressions -->
+        <exclude name="WebimpressCodingStandard.Formatting.RedundantParentheses.SingleEquality"/> <!-- Sometimes it fails with false positive -->
+        <exclude name="PSR12.Classes.ClassInstantiation.MissingParentheses"/> <!-- Allow class instantiation without parentheses -->
+        <exclude name="WebimpressCodingStandard.Strings.NoConcatenationAtTheEnd.ConcatenationAtTheEnd"/> <!-- Allow concatenation at the end of the line -->
+        <exclude name="WebimpressCodingStandard.NamingConventions.ValidVariableName.NotCamelCaps"/> <!-- Allow variable names not strictly in camelCase (e.g. accessTokenTTL) -->
+        <exclude name="WebimpressCodingStandard.PHP.CorrectClassNameCase"/> <!-- Fails in some cases, e.g. $this->property::class -->
+        <exclude name="WebimpressCodingStandard.NamingConventions.AbstractClass.Prefix"/> <!-- Allow abstract classes without prefix -->
+        <exclude name="Squiz.WhiteSpace.OperatorSpacing"/> <!-- Overwrote with SRG.WhiteSpace.OperatorSpacing below -->
+        <exclude name="PSR12.Operators.OperatorSpacing"/> <!-- Overwrote with SRG.WhiteSpace.OperatorSpacing below -->
+        <rule ref="WebimpressCodingStandard.Formatting.StringClassReference" phpcs-only="true"/>
+    </rule>
 
 
-	<!-- Files -->
-	<rule ref="Generic.PHP.RequireStrictTypes"/> <!-- Require strict types declaration, e.g., declare(strict_types=1); at the top of the file -->
-	<rule ref="Generic.Files.EndFileNewline"/> <!-- Require a newline at the end of the file -->
+    <!-- General styling -->
+    <rule ref="Generic.WhiteSpace.ScopeIndent"> <!-- Overwrite PSR12, allow tabs -->
+        <properties>
+            <property name="indent" value="4"/>
+            <property name="tabIndent" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/> <!-- Disallow space indentation, use tabs -->
+    <rule ref="Generic.Files.LineLength"> <!-- Limit line length to 180 characters, but allow no limit for absolute line length -->
+        <properties>
+            <property name="lineLimit" value="180"/>
+            <property name="absoluteLineLimit" value="0"/>
+            <property name="ignoreComments" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="Generic.WhiteSpace.LanguageConstructSpacing"/> <!-- One space after language constructs, e.g., echo, new, require, include, etc. -->
 
 
-	<!-- Variables -->
-	<rule ref="Squiz.NamingConventions.ValidVariableName"> <!-- Variable names must be in camelCase, e.g., $myVariable -->
-		<exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/> <!-- Disallow private variables starting with underscore -->
-	</rule>
-	<rule ref="SlevomatCodingStandard.Variables.DuplicateAssignmentToVariable"/>
-	<rule ref="SlevomatCodingStandard.Variables.UnusedVariable"/>
+    <!-- Files -->
+    <rule ref="Generic.PHP.RequireStrictTypes"/> <!-- Require strict types declaration, e.g., declare(strict_types=1); at the top of the file -->
+    <rule ref="Generic.Files.EndFileNewline"/> <!-- Require a newline at the end of the file -->
 
 
-	<!-- Operators -->
-	<rule ref="SRG.WhiteSpace.OperatorSpacing">
-		<!-- Overwrite PSR12 operator spacing rules, because it requires spaces between catch types. It's not union type, but PHPStorm handles it as such. -->
-		<properties>
-			<property name="ignoreNewlines" value="true"/>
-		</properties>
-	</rule>
-	<rule ref="Squiz.Operators.IncrementDecrementUsage"/> <!-- Check correct usage of increment/decrement operators -->
-	<rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter"/> <!-- No space after the spread operator-->
-	<rule ref="SlevomatCodingStandard.Operators.NegationOperatorSpacing"/> <!-- No space after the negation operator -->
-	<rule ref="SlevomatCodingStandard.Operators.SpreadOperatorSpacing"/> <!-- No space after the spread operator -->
+    <!-- Variables -->
+    <rule ref="Squiz.NamingConventions.ValidVariableName"> <!-- Variable names must be in camelCase, e.g., $myVariable -->
+        <exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/> <!-- Disallow private variables starting with underscore -->
+    </rule>
+    <rule ref="SlevomatCodingStandard.Variables.DuplicateAssignmentToVariable"/>
+    <rule ref="SlevomatCodingStandard.Variables.UnusedVariable"/>
 
 
-	<!-- Control structures (if, for, while, switch, match, etc.) -->
-	<rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/> <!-- Control structure spacing rules -->
-	<rule ref="PSR12.ControlStructures.ControlStructureSpacing"> <!-- Control structure spacing rules from PSR-12, Overwrite it -->
-		<exclude name="PSR12.ControlStructures.ControlStructureSpacing.LineIndent"/> <!-- This rule requires spaces, we have tabs -->
-	</rule>
-	<rule ref="Squiz.ControlStructures.SwitchDeclaration"> <!-- Switch statement formatting rules -->
-		<exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/> <!-- Turn off because it requires spaces, we have tabs -->
-		<exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterBreak"/> <!-- Do not require blank lines after break -->
-		<exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingBeforeBreak"/> <!-- Allow blank lines before break -->
-		<exclude name="Squiz.ControlStructures.SwitchDeclaration.MissingDefault"/> <!-- Allow switch without a default case -->
-	</rule>
-	<rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/> <!-- Disallow size functions (count, sizeof) in loops, e.g., for ($i = 0; $i < count($array); $i++) -->
-	<rule ref="Generic.ControlStructures.DisallowYodaConditions"/> <!-- Disallow Yoda conditions, e.g., if ('value' === $variable) -->
-	<rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/> <!-- Disallow for loops with function calls in it, e.g., for ($i = 0; $i < count($array); $i++) -->
-	<rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/> <!-- Disallow unconditional if statements, e.g., if (true) { ... } -->
-	<rule ref="Squiz.Commenting.EmptyCatchComment"/> <!-- Empty catch blocks should have a comment explaining why they are empty -->
-	<rule ref="Squiz.ControlStructures.InlineIfDeclaration"> <!-- Inline if statement formatting rules -->
-		<exclude name="Squiz.ControlStructures.InlineIfDeclaration.NoBrackets"/> <!-- Allow inline if statements without brackets, e.g., $value = $condition ? 'yes' : 'no'; -->
-		<exclude name="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine"/> <!-- Allow short ifs in multiline format -->
-	</rule>
-	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/> <!-- Closing brace alignment -->
-	<rule ref="PSR12.ControlStructures.BooleanOperatorPlacement"/> <!-- Boolean operator placement rules, e.g., && and || should be placed at the end of the line -->
-	<rule ref="SlevomatCodingStandard.ControlStructures.DisallowTrailingMultiLineTernaryOperator"/> <!-- ? and : should be at the beginning of the line, not at the end -->
-	<rule ref="SlevomatCodingStandard.ControlStructures.JumpStatementsSpacing"> <!-- Blank lines before some jump statements -->
-		<property name="jumpStatements" type="array">
-			<element value="goto"/>
-			<element value="return"/>
-			<element value="break"/>
-			<element value="continue"/>
-			<element value="throw"/>
-		</property>
-	</rule>
-	<rule ref="SlevomatCodingStandard.ControlStructures.LanguageConstructWithParentheses"/> <!-- Language constructs with parentheses, not without (e.g. include) -->
-	<rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineCondition"> <!-- Require multiline condition for long conditions -->
-		<properties>
-			<property name="minLineLength" value="160"/>
-		</properties>
-	</rule>
-	<rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceEqualOperator"/> <!-- Require null coalesce equal operator (??=) for null coalesce assignment -->
-	<rule ref="SlevomatCodingStandard.ControlStructures.RequireShortTernaryOperator"/> <!-- Require short ternary operator (?:) for ternary assignment -->
-	<rule ref="SlevomatCodingStandard.ControlStructures.DisallowYodaComparison"/> <!-- Disallow Yoda comparison, e.g., if (true === $condition) -->
-	<rule ref="SlevomatCodingStandard.ControlStructures.UselessIfConditionWithReturn"/> <!-- Disallow if conditions with only return bool, e.g., if ($c) { return true; } -->
-	<rule ref="SlevomatCodingStandard.ControlStructures.UselessTernaryOperator"/> <!-- Disallow useless ternary operators, e.g., $value = $condition ? true : false; -->
+    <!-- Operators -->
+    <rule ref="SRG.WhiteSpace.OperatorSpacing">
+        <!-- Overwrite PSR12 operator spacing rules, because it requires spaces between catch types. It's not union type, but PHPStorm handles it as such. -->
+        <properties>
+            <property name="ignoreNewlines" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.Operators.IncrementDecrementUsage"/> <!-- Check correct usage of increment/decrement operators -->
+    <rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter"/> <!-- No space after the spread operator-->
+    <rule ref="SlevomatCodingStandard.Operators.NegationOperatorSpacing"/> <!-- No space after the negation operator -->
+    <rule ref="SlevomatCodingStandard.Operators.SpreadOperatorSpacing"/> <!-- No space after the spread operator -->
 
 
-	<!--Arrays-->
-	<rule ref="Squiz.Arrays.ArrayBracketSpacing"/> <!-- Array bracket spacing rules, e.g., no space before and after brackets -->
-	<rule ref="SlevomatCodingStandard.Arrays.ArrayAccess"/> <!-- Array access formatting and spacing rules, e.g., $array['key'] -->
-	<rule ref="SlevomatCodingStandard.Arrays.DisallowPartiallyKeyed"/> <!-- Disallow partially keyed arrays, e.g., ['key' => 'value', 'value'] -->
-	<rule ref="SlevomatCodingStandard.Arrays.MultiLineArrayEndBracketPlacement"/> <!-- Multi-line array end bracket placement rules, new line before the closing bracket -->
-	<rule ref="SlevomatCodingStandard.Arrays.SingleLineArrayWhitespace"> <!-- Spacing rules for single-line arrays -->
-		<properties>
-			<property name="enableEmptyArrayCheck" value="true"/>
-		</properties>
-	</rule>
+    <!-- Control structures (if, for, while, switch, match, etc.) -->
+    <rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/> <!-- Control structure spacing rules -->
+    <rule ref="PSR12.ControlStructures.ControlStructureSpacing"> <!-- Control structure spacing rules from PSR-12, Overwrite it -->
+        <exclude name="PSR12.ControlStructures.ControlStructureSpacing.LineIndent"/> <!-- This rule requires spaces, we have tabs -->
+    </rule>
+    <rule ref="Squiz.ControlStructures.SwitchDeclaration"> <!-- Switch statement formatting rules -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/> <!-- Turn off because it requires spaces, we have tabs -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterBreak"/> <!-- Do not require blank lines after break -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingBeforeBreak"/> <!-- Allow blank lines before break -->
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.MissingDefault"/> <!-- Allow switch without a default case -->
+    </rule>
+    <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/> <!-- Disallow size functions (count, sizeof) in loops, e.g., for ($i = 0; $i < count($array); $i++) -->
+    <rule ref="Generic.ControlStructures.DisallowYodaConditions"/> <!-- Disallow Yoda conditions, e.g., if ('value' === $variable) -->
+    <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/> <!-- Disallow for loops with function calls in it, e.g., for ($i = 0; $i < count($array); $i++) -->
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/> <!-- Disallow unconditional if statements, e.g., if (true) { ... } -->
+    <rule ref="Squiz.Commenting.EmptyCatchComment"/> <!-- Empty catch blocks should have a comment explaining why they are empty -->
+    <rule ref="Squiz.ControlStructures.InlineIfDeclaration"> <!-- Inline if statement formatting rules -->
+        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NoBrackets"/> <!-- Allow inline if statements without brackets, e.g., $value = $condition ? 'yes' : 'no'; -->
+        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine"/> <!-- Allow short ifs in multiline format -->
+    </rule>
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/> <!-- Closing brace alignment -->
+    <rule ref="PSR12.ControlStructures.BooleanOperatorPlacement"> <!-- Boolean operator placement rules, e.g., && and || should be placed at the end of the line -->
+        <properties>
+            <property name="allowOnly" value="first"/>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.ControlStructures.DisallowTrailingMultiLineTernaryOperator"/> <!-- ? and : should be at the beginning of the line, not at the end -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.JumpStatementsSpacing"> <!-- Blank lines before some jump statements -->
+        <property name="jumpStatements" type="array">
+            <element value="goto"/>
+            <element value="return"/>
+            <element value="break"/>
+            <element value="continue"/>
+            <element value="throw"/>
+        </property>
+    </rule>
+    <rule ref="SlevomatCodingStandard.ControlStructures.LanguageConstructWithParentheses"/> <!-- Language constructs with parentheses, not without (e.g. include) -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineCondition"> <!-- Require multiline condition for long conditions -->
+        <properties>
+            <property name="minLineLength" value="160"/>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceEqualOperator"/> <!-- Require null coalesce equal operator (??=) for null coalesce assignment -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.RequireShortTernaryOperator"/> <!-- Require short ternary operator (?:) for ternary assignment -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.DisallowYodaComparison"/> <!-- Disallow Yoda comparison, e.g., if (true === $condition) -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.UselessIfConditionWithReturn"/> <!-- Disallow if conditions with only return bool, e.g., if ($c) { return true; } -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.UselessTernaryOperator"/> <!-- Disallow useless ternary operators, e.g., $value = $condition ? true : false; -->
 
 
-	<!-- Classes -->
-	<rule ref="Squiz.Classes.LowercaseClassKeywords"/> <!-- Class keywords (class, interface, trait) must be lowercase -->
-	<rule ref="PSR12.Classes.ClosingBrace"/> <!-- Closing brace for classes must be on a new line -->
-	<rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
-		<properties>
-			<property name="linesCountAfterOpeningBrace" value="2"/>
-			<property name="linesCountBeforeClosingBrace" value="2"/>
-		</properties>
-	</rule>
-	<rule ref="PSR1.Classes.ClassDeclaration"/> <!-- Class declaration rules from PSR-1, e.g., one class per file, class names matches file names -->
-	<rule ref="Generic.Files.OneClassPerFile"/> <!-- Require one class per file -->
-	<rule ref="Generic.Files.OneInterfacePerFile"/> <!-- Require one interface per file -->
-	<rule ref="Generic.Files.OneObjectStructurePerFile"/> <!-- Require one object structure per file, e.g., class, interface, trait -->
-	<rule ref="Generic.Files.OneTraitPerFile"/> <!-- Require one trait per file -->
-	<rule ref="Generic.NamingConventions.InterfaceNameSuffix"/> <!-- Interface names must end with "Interface" -->
-	<rule ref="Generic.NamingConventions.TraitNameSuffix"/> <!-- Trait names must end with "Trait" -->
-	<rule ref="Generic.Classes.OpeningBraceSameLine"/> <!-- Opening brace for classes must be on the same line as the class declaration - K&R style -->
-	<rule ref="SlevomatCodingStandard.Classes.ClassMemberSpacing"> <!-- Spacing between class members (properties, methods, constants) -->
-		<properties>
-			<property name="linesCountBetweenMembers" value="2"/>
-		</properties>
-	</rule>
-	<rule ref="SlevomatCodingStandard.Classes.ClassStructure"> <!-- Class structure rules, order of class members -->
-		<properties>
-			<property name="methodGroups" type="array">
-				<element key="phpunit before static" value="setUpBeforeClass, tearDownAfterClass"/>
-				<element key="phpunit before" value="setUp, tearDown, @before, #PHPUnit\Framework\Attributes\Before"/>
-				<element key="phpunit initConstraint" value="initConstraint"/>
-				<element key="canCreate method" value="canCreate"/>
-				<element key="checkMergedConfig method" value="checkMergedConfig"/>
-				<element key="invoke method" value="__invoke"/>
-			</property>
-
-			<property name="groups" type="array">
-				<element value="uses"/>
-
-				<element value="enum cases"/>
-
-				<!-- Public constants are first, but you don't care about the order of protected or private constants -->
-				<element value="public constants"/>
-				<element value="constants"/>
+    <!--Arrays-->
+    <rule ref="Squiz.Arrays.ArrayBracketSpacing"/> <!-- Array bracket spacing rules, e.g., no space before and after brackets -->
+    <rule ref="SlevomatCodingStandard.Arrays.ArrayAccess"/> <!-- Array access formatting and spacing rules, e.g., $array['key'] -->
+    <rule ref="SlevomatCodingStandard.Arrays.DisallowPartiallyKeyed"/> <!-- Disallow partially keyed arrays, e.g., ['key' => 'value', 'value'] -->
+    <rule ref="SlevomatCodingStandard.Arrays.MultiLineArrayEndBracketPlacement"/> <!-- Multi-line array end bracket placement rules, new line before the closing bracket -->
+    <rule ref="SlevomatCodingStandard.Arrays.SingleLineArrayWhitespace"> <!-- Spacing rules for single-line arrays -->
+        <properties>
+            <property name="enableEmptyArrayCheck" value="true"/>
+        </properties>
+    </rule>
 
 
-				<!-- You don't care about the order among the properties. The same can be done with "properties" shortcut -->
-				<element value="public static properties, protected static properties, private static properties"/>
-				<element value="public properties, protected properties, private properties"/>
+    <!-- Classes -->
+    <rule ref="Squiz.Classes.LowercaseClassKeywords"/> <!-- Class keywords (class, interface, trait) must be lowercase -->
+    <rule ref="PSR12.Classes.ClosingBrace"/> <!-- Closing brace for classes must be on a new line -->
+    <rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
+        <properties>
+            <property name="linesCountAfterOpeningBrace" value="2"/>
+            <property name="linesCountBeforeClosingBrace" value="2"/>
+        </properties>
+    </rule>
+    <rule ref="PSR1.Classes.ClassDeclaration"/> <!-- Class declaration rules from PSR-1, e.g., one class per file, class names matches file names -->
+    <rule ref="Generic.Files.OneClassPerFile"/> <!-- Require one class per file -->
+    <rule ref="Generic.Files.OneInterfacePerFile"/> <!-- Require one interface per file -->
+    <rule ref="Generic.Files.OneObjectStructurePerFile"/> <!-- Require one object structure per file, e.g., class, interface, trait -->
+    <rule ref="Generic.Files.OneTraitPerFile"/> <!-- Require one trait per file -->
+    <rule ref="Generic.NamingConventions.InterfaceNameSuffix"/> <!-- Interface names must end with "Interface" -->
+    <rule ref="Generic.NamingConventions.TraitNameSuffix"/> <!-- Trait names must end with "Trait" -->
+    <rule ref="Generic.Classes.OpeningBraceSameLine"/> <!-- Opening brace for classes must be on the same line as the class declaration - K&R style -->
+    <rule ref="SlevomatCodingStandard.Classes.ClassMemberSpacing"> <!-- Spacing between class members (properties, methods, constants) -->
+        <properties>
+            <property name="linesCountBetweenMembers" value="2"/>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.ClassStructure"> <!-- Class structure rules, order of class members -->
+        <properties>
+            <property name="methodGroups" type="array">
+                <element key="phpunit before static" value="setUpBeforeClass, tearDownAfterClass"/>
+                <element key="phpunit before" value="setUp, tearDown, @before, #PHPUnit\Framework\Attributes\Before"/>
+                <element key="phpunit initConstraint" value="initConstraint"/>
+                <element key="canCreate method" value="canCreate"/>
+                <element key="checkMergedConfig method" value="checkMergedConfig"/>
+                <element key="invoke method" value="__invoke"/>
+            </property>
 
-				<element value="public abstract methods, public static abstract methods, protected abstract methods, protected static abstract methods"/>
+            <property name="groups" type="array">
+                <element value="uses"/>
 
-				<!-- Constructor is first -->
-				<element value="constructor"/>
+                <element value="enum cases"/>
 
-				<element value="canCreate method"/>
-				<element value="invoke method"/>
-
-				<!-- PHPUnit's before hooks are placed before all other public methods using a custom method group -->
-				<element value="phpunit before static"/>
-				<element value="phpunit before"/>
-				<element value="phpunit initConstraint"/>
-
-				<!-- Then all public methods, followed by protected/private methods -->
-				<element value="all public methods"/>
-				<element value="methods"/>
-
-				<element value="checkMergedConfig method"/>
-
-				<!-- Magic methods are last -->
-				<element value="magic methods"/>
-			</property>
-		</properties>
-	</rule>
-
-
-	<!-- Namespaces, imports, and use statements -->
-	<rule ref="PSR2.Namespaces.NamespaceDeclaration"/> <!-- Namespace is the first (except for declare), blank lines before and after, single line -->
-	<rule ref="PSR2.Namespaces.UseDeclaration"/> <!-- After namespace, one per line, no blank lines between uses, blank lines before and after use statements -->
-	<rule ref="PSR12.Traits.UseDeclaration"> <!-- Verify trait use declarations -->
-		<exclude name="PSR12.Traits.UseDeclaration.UseAfterBrace"/> <!-- Allow empty lines before class opening brace -->
-		<exclude name="PSR12.Traits.UseDeclaration.BlankLineAfterLastUse"/> <!-- Allow empty lines before class opening brace -->
-	</rule>
-	<rule ref="SlevomatCodingStandard.Namespaces.NamespaceDeclaration"/> <!-- Correct namespace declaration rules -->
-	<rule ref="SlevomatCodingStandard.Namespaces.RequireOneNamespaceInFile"/> <!-- Require one namespace per file -->
-	<rule ref="SlevomatCodingStandard.Namespaces.UseSpacing"> <!-- Spacing rules for use statements -->
-		<properties>
-			<property name="linesCountBetweenUseTypes" value="1"/> <!-- Require one empty line between use statements of different types -->
-		</properties>
-	</rule>
-	<rule ref="SlevomatCodingStandard.Classes.TraitUseDeclaration"/> <!-- Trait use declaration rules -->
-	<rule ref="SlevomatCodingStandard.Classes.TraitUseSpacing"> <!-- Spacing rules for trait use statements -->
-		<properties>
-			<property name="linesCountBeforeFirstUseWhenFirstInClass" value="2"/>
-			<property name="linesCountAfterLastUseWhenLastInClass" value="2"/>
-			<property name="linesCountAfterLastUse" value="2"/>
-		</properties>
-	</rule>
+                <!-- Public constants are first, but you don't care about the order of protected or private constants -->
+                <element value="public constants"/>
+                <element value="constants"/>
 
 
-	<!-- Class properties and constants -->
-	<rule ref="Squiz.Scope.MemberVarScope"/> <!-- Class properties must have scope defined, e.g., public, protected, private -->
-	<rule ref="SlevomatCodingStandard.Classes.ConstantSpacing"/> <!-- Blank lines between class constants -->
-	<rule ref="SlevomatCodingStandard.Classes.DisallowMultiConstantDefinition"/> <!-- Disallow multiple constants defined in one line, e.g., const A = 1, B = 2; -->
-	<rule ref="SlevomatCodingStandard.Classes.DisallowMultiPropertyDefinition"/> <!-- Disallow multiple properties defined in one line, e.g., public $a, $b; -->
-	<rule ref="SlevomatCodingStandard.Classes.DisallowStringExpressionPropertyFetch"/> <!-- Disallow string expression property fetch, e.g., $this->{$property} -->
-	<rule ref="SlevomatCodingStandard.Classes.PropertySpacing"/> <!-- Spacing rules for class properties -->
+                <!-- You don't care about the order among the properties. The same can be done with "properties" shortcut -->
+                <element value="public static properties, protected static properties, private static properties"/>
+                <element value="public properties, protected properties, private properties"/>
+
+                <element value="public abstract methods, public static abstract methods, protected abstract methods, protected static abstract methods"/>
+
+                <!-- Constructor is first -->
+                <element value="constructor"/>
+
+                <element value="canCreate method"/>
+                <element value="invoke method"/>
+
+                <!-- PHPUnit's before hooks are placed before all other public methods using a custom method group -->
+                <element value="phpunit before static"/>
+                <element value="phpunit before"/>
+                <element value="phpunit initConstraint"/>
+
+                <!-- Then all public methods, followed by protected/private methods -->
+                <element value="all public methods"/>
+                <element value="methods"/>
+
+                <element value="checkMergedConfig method"/>
+
+                <!-- Magic methods are last -->
+                <element value="magic methods"/>
+            </property>
+        </properties>
+    </rule>
 
 
-	<!-- Class methods -->
-	<rule ref="PSR1.Methods.CamelCapsMethodName"/> <!-- Method names must be in camelCase according to PSR-1 -->
-	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/> <!-- Disallow overriding methods that do not change the behavior of the parent method -->
-	<rule ref="SlevomatCodingStandard.Classes.MethodSpacing"> <!-- Spacing rules for class methods -->
-		<properties>
-			<property name="minLinesCount" value="2"/>
-			<property name="maxLinesCount" value="2"/>
-		</properties>
-	</rule>
-
-	<!-- Enums -->
-	<rule ref="SlevomatCodingStandard.Classes.BackedEnumTypeSpacing"/> <!-- Spacing rules for backed enum's main type -->
-	<rule ref="SlevomatCodingStandard.Classes.EnumCaseSpacing"/> <!-- Spacing rules for enum cases -->
-
-
-	<!-- Functions -->
-	<rule ref="Squiz.NamingConventions.ValidFunctionName"> <!-- Function names must be in camelCase, e.g., myFunction() -->
-		<exclude name="Squiz.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/> <!-- Disallow private methods starting with underscore -->
-	</rule>
-	<rule ref="Squiz.WhiteSpace.FunctionSpacing"/> <!--Spacing between functions and methods (2 lines) -->
-	<rule ref="Generic.NamingConventions.CamelCapsFunctionName"> <!-- Function names must be in camelCase -->
-		<properties>
-			<property name="strict" value="false"/> <!-- Allow 2 uppercase letters after each other, e.g., "getHTTPResponse" -->
-		</properties>
-	</rule>
-	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"> <!-- Opening brace for functions must be on the same line as the function declaration - K&R style -->
-		<properties>
-			<property name="checkFunctions" value="true"/>
-			<!-- <property name="checkClosures" value="false"/> @TODO It was set to false, should check if it is a problem -->
-		</properties>
-	</rule>
-	<rule ref="Squiz.Functions.FunctionDuplicateArgument"/> <!-- Disallow duplicate function arguments, e.g., function($a, $b, $a) -->
-	<rule ref="Squiz.PHP.InnerFunctions"/> <!-- Disallow inner functions, e.g., function inside another function -->
-	<rule ref="SlevomatCodingStandard.Functions.ArrowFunctionDeclaration">
-		<properties>
-			<property name="spacesCountAfterKeyword" value="0"/> <!-- No space after the fn -->
-		</properties>
-	</rule>
-	<rule ref="SlevomatCodingStandard.Functions.StaticClosure"/> <!-- Force static closures without $this reference -->
-	<rule ref="SlevomatCodingStandard.Functions.NamedArgumentSpacing"/> <!-- Spacing rules for named arguments -->
-	<rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue"/> <!-- Disallow useless parameter default values -->
-	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"> <!-- Disallow unused function parameters -->
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClass"/> <!-- Allow unused parameters in extended classes -->
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed"/>
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed"/>
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterface"/> <!-- Allow unused parameters in implemented interfaces -->
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceBeforeLastUsed"/>
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceAfterLastUsed"/>
-		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundBeforeLastUsed"/> <!-- Allow unused parameters before the last used parameter -->
-	</rule>
+    <!-- Namespaces, imports, and use statements -->
+    <rule ref="PSR2.Namespaces.NamespaceDeclaration"/> <!-- Namespace is the first (except for declare), blank lines before and after, single line -->
+    <rule ref="PSR2.Namespaces.UseDeclaration"/> <!-- After namespace, one per line, no blank lines between uses, blank lines before and after use statements -->
+    <rule ref="PSR12.Traits.UseDeclaration"> <!-- Verify trait use declarations -->
+        <exclude name="PSR12.Traits.UseDeclaration.UseAfterBrace"/> <!-- Allow empty lines before class opening brace -->
+        <exclude name="PSR12.Traits.UseDeclaration.BlankLineAfterLastUse"/> <!-- Allow empty lines before class opening brace -->
+    </rule>
+    <rule ref="SlevomatCodingStandard.Namespaces.NamespaceDeclaration"/> <!-- Correct namespace declaration rules -->
+    <rule ref="SlevomatCodingStandard.Namespaces.RequireOneNamespaceInFile"/> <!-- Require one namespace per file -->
+    <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing"> <!-- Spacing rules for use statements -->
+        <properties>
+            <property name="linesCountBetweenUseTypes" value="1"/> <!-- Require one empty line between use statements of different types -->
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.TraitUseDeclaration"/> <!-- Trait use declaration rules -->
+    <rule ref="SlevomatCodingStandard.Classes.TraitUseSpacing"> <!-- Spacing rules for trait use statements -->
+        <properties>
+            <property name="linesCountBeforeFirstUseWhenFirstInClass" value="2"/>
+            <property name="linesCountAfterLastUseWhenLastInClass" value="2"/>
+            <property name="linesCountAfterLastUse" value="2"/>
+        </properties>
+    </rule>
 
 
-	<!-- Type hints -->
-	<rule ref="PSR12.Functions.NullableTypeDeclaration"
-		  phpcs-only="true"/> <!-- Parameters with null default value should have nullable type declaration, e.g., ?string $param = null -->
-	<rule ref="PSR12.Functions.ReturnTypeDeclaration"/> <!-- Functions should have return type declaration, e.g., function myFunction(): string -->
-	<rule ref="PSR12.Keywords.ShortFormTypeKeywords"/> <!-- Use short form type keywords, e.g., int, string, bool, array, etc. -->
-	<rule ref="SlevomatCodingStandard.TypeHints.ClassConstantTypeHint"/>
-	<rule ref="SlevomatCodingStandard.TypeHints.DisallowArrayTypeHintSyntax"/>
-	<rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints"/>
-	<rule ref="SlevomatCodingStandard.TypeHints.NullTypeHintOnLastPosition"/>
-	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint"/>
-	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint"/>
-	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint"/>
-	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing"/>
-	<rule ref="SlevomatCodingStandard.TypeHints.DNFTypeHintFormat"/>
-	<rule ref="SlevomatCodingStandard.TypeHints.UselessConstantTypeHint"/>
+    <!-- Class properties and constants -->
+    <rule ref="Squiz.Scope.MemberVarScope"/> <!-- Class properties must have scope defined, e.g., public, protected, private -->
+    <rule ref="SlevomatCodingStandard.Classes.ConstantSpacing"/> <!-- Blank lines between class constants -->
+    <rule ref="SlevomatCodingStandard.Classes.DisallowMultiConstantDefinition"/> <!-- Disallow multiple constants defined in one line, e.g., const A = 1, B = 2; -->
+    <rule ref="SlevomatCodingStandard.Classes.DisallowMultiPropertyDefinition"/> <!-- Disallow multiple properties defined in one line, e.g., public $a, $b; -->
+    <rule ref="SlevomatCodingStandard.Classes.DisallowStringExpressionPropertyFetch"/> <!-- Disallow string expression property fetch, e.g., $this->{$property} -->
+    <rule ref="SlevomatCodingStandard.Classes.PropertySpacing"/> <!-- Spacing rules for class properties -->
 
 
-	<!-- Attributes -->
-	<rule ref="SlevomatCodingStandard.Attributes.AttributeAndTargetSpacing"/>
-	<rule ref="SlevomatCodingStandard.Attributes.DisallowAttributesJoining"/>
-	<rule ref="SlevomatCodingStandard.Attributes.DisallowMultipleAttributesPerLine"/>
-	<rule ref="SlevomatCodingStandard.Attributes.RequireAttributeAfterDocComment"/>
+    <!-- Class methods -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName"/> <!-- Method names must be in camelCase according to PSR-1 -->
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/> <!-- Disallow overriding methods that do not change the behavior of the parent method -->
+    <rule ref="SlevomatCodingStandard.Classes.MethodSpacing"> <!-- Spacing rules for class methods -->
+        <properties>
+            <property name="minLinesCount" value="2"/>
+            <property name="maxLinesCount" value="2"/>
+        </properties>
+    </rule>
 
-	<!-- Other -->
-	<rule ref="Generic.PHP.DisallowRequestSuperglobal"/> <!-- Disallow usage of $_REQUEST superglobal, use $_GET and $_POST instead -->
-	<rule ref="Generic.PHP.NoSilencedErrors"/> <!-- Disallow silenced errors, e.g., @function_call() -->
-	<!--<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/>--> <!-- @TODO ez esetleg? kicsit borítja az if-eket Arbitrary sets of parentheses should have no spaces inside. -->
-	<rule ref="Generic.CodeAnalysis.JumbledIncrementer"/> <!-- Disallow jumbled incrementers, e.g., $i++ and $i\-\- in the same code block -->
-	<rule ref="Squiz.PHP.CommentedOutCode"> <!-- Disallow commented-out code -->
-		<properties>
-			<property name="maxPercentage" value="70"/> <!-- Allow up to 70% of commented-out code in a file -->
-		</properties>
-	</rule>
-	<rule ref="Squiz.PHP.DiscouragedFunctions"/> <!-- Disallow discouraged functions, e.g., error_log(), print_r(), var_dump() -->
-	<rule ref="Squiz.PHP.Eval"/> <!-- Disallow eval() function -->
-
-	<rule ref="SlevomatCodingStandard.PHP.ReferenceSpacing"/>
-	<rule ref="SlevomatCodingStandard.PHP.TypeCast"/>
-	<rule ref="SlevomatCodingStandard.PHP.UselessParentheses">
-		<properties>
-			<property name="ignoreComplexTernaryConditions" value="true"/> <!-- Ignore complex ternary conditions -->
-		</properties>
-	</rule>
-	<rule ref="SlevomatCodingStandard.PHP.UselessSemicolon"/>
+    <!-- Enums -->
+    <rule ref="SlevomatCodingStandard.Classes.BackedEnumTypeSpacing"/> <!-- Spacing rules for backed enum's main type -->
+    <rule ref="SlevomatCodingStandard.Classes.EnumCaseSpacing"/> <!-- Spacing rules for enum cases -->
 
 
-	<!-- Metrics -->
-	<rule ref="Generic.Metrics.CyclomaticComplexity"> <!-- Cyclomatic complexity should not exceed 50 -->
-		<properties>
-			<property name="complexity" value="50"/>
-			<property name="absoluteComplexity" value="100"/> <!-- Absolute complexity limit -->
-		</properties>
-	</rule>
-	<rule ref="Generic.Metrics.NestingLevel"> <!-- Nesting level should not exceed 5 -->
-		<properties>
-			<property name="nestingLevel" value="5"/>
-			<property name="absoluteNestingLevel" value="10"/>
-		</properties>
-	</rule>
+    <!-- Functions -->
+    <rule ref="Squiz.NamingConventions.ValidFunctionName"> <!-- Function names must be in camelCase, e.g., myFunction() -->
+        <exclude name="Squiz.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/> <!-- Disallow private methods starting with underscore -->
+    </rule>
+    <rule ref="Squiz.WhiteSpace.FunctionSpacing"/> <!--Spacing between functions and methods (2 lines) -->
+    <rule ref="Generic.NamingConventions.CamelCapsFunctionName"> <!-- Function names must be in camelCase -->
+        <properties>
+            <property name="strict" value="false"/> <!-- Allow 2 uppercase letters after each other, e.g., "getHTTPResponse" -->
+        </properties>
+    </rule>
+    <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"> <!-- Opening brace for functions must be on the same line as the function declaration - K&R style -->
+        <properties>
+            <property name="checkFunctions" value="true"/>
+            <!-- <property name="checkClosures" value="false"/> @TODO It was set to false, should check if it is a problem -->
+        </properties>
+    </rule>
+    <rule ref="Squiz.Functions.FunctionDuplicateArgument"/> <!-- Disallow duplicate function arguments, e.g., function($a, $b, $a) -->
+    <rule ref="Squiz.PHP.InnerFunctions"/> <!-- Disallow inner functions, e.g., function inside another function -->
+    <rule ref="SlevomatCodingStandard.Functions.ArrowFunctionDeclaration">
+        <properties>
+            <property name="spacesCountAfterKeyword" value="0"/> <!-- No space after the fn -->
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Functions.StaticClosure"/> <!-- Force static closures without $this reference -->
+    <rule ref="SlevomatCodingStandard.Functions.NamedArgumentSpacing"/> <!-- Spacing rules for named arguments -->
+    <rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue"/> <!-- Disallow useless parameter default values -->
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"> <!-- Disallow unused function parameters -->
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClass"/> <!-- Allow unused parameters in extended classes -->
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed"/>
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed"/>
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterface"/> <!-- Allow unused parameters in implemented interfaces -->
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceBeforeLastUsed"/>
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceAfterLastUsed"/>
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundBeforeLastUsed"/> <!-- Allow unused parameters before the last used parameter -->
+    </rule>
 
 
-	<!-- Comments -->
-	<rule ref="Squiz.Commenting.DocCommentAlignment"/> <!-- Formats stars in doc comments -->
-	<rule ref="SlevomatCodingStandard.Commenting.AnnotationName"/>
-	<rule ref="SlevomatCodingStandard.Commenting.DeprecatedAnnotationDeclaration"/>
-	<rule ref="SlevomatCodingStandard.Commenting.ForbiddenComments"/>
-	<rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing"/>
-	<rule ref="SlevomatCodingStandard.Commenting.UselessFunctionDocComment">
-		<properties>
-			<property name="traversableTypeHints" type="array">
-				<element value="array"/>
-			</property>
-		</properties>
-	</rule>
-	<rule ref="SlevomatCodingStandard.Commenting.UselessInheritDocComment"/>
-	<rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration">
-		<properties>
-			<property name="allowAboveNonAssignment" value="true"/> <!-- Allow inline doc comments above line without assignment, or assignment inside if -->
-		</properties>
-	</rule>
+    <!-- Type hints -->
+    <rule ref="PSR12.Functions.NullableTypeDeclaration"
+          phpcs-only="true"/> <!-- Parameters with null default value should have nullable type declaration, e.g., ?string $param = null -->
+    <rule ref="PSR12.Functions.ReturnTypeDeclaration"/> <!-- Functions should have return type declaration, e.g., function myFunction(): string -->
+    <rule ref="PSR12.Keywords.ShortFormTypeKeywords"/> <!-- Use short form type keywords, e.g., int, string, bool, array, etc. -->
+    <rule ref="SlevomatCodingStandard.TypeHints.ClassConstantTypeHint"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.DisallowArrayTypeHintSyntax"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.NullTypeHintOnLastPosition"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.DNFTypeHintFormat"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.UselessConstantTypeHint"/>
 
 
-	<arg name="colors"/>
-	<ini name="memory_limit" value="128M"/>
+    <!-- Attributes -->
+    <rule ref="SlevomatCodingStandard.Attributes.AttributeAndTargetSpacing"/>
+    <rule ref="SlevomatCodingStandard.Attributes.DisallowAttributesJoining"/>
+    <rule ref="SlevomatCodingStandard.Attributes.DisallowMultipleAttributesPerLine"/>
+    <rule ref="SlevomatCodingStandard.Attributes.RequireAttributeAfterDocComment"/>
+
+    <!-- Other -->
+    <rule ref="Generic.PHP.DisallowRequestSuperglobal"/> <!-- Disallow usage of $_REQUEST superglobal, use $_GET and $_POST instead -->
+    <rule ref="Generic.PHP.NoSilencedErrors"/> <!-- Disallow silenced errors, e.g., @function_call() -->
+    <!--<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/>--> <!-- @TODO ez esetleg? kicsit borítja az if-eket Arbitrary sets of parentheses should have no spaces inside. -->
+    <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/> <!-- Disallow jumbled incrementers, e.g., $i++ and $i\-\- in the same code block -->
+    <rule ref="Squiz.PHP.CommentedOutCode"> <!-- Disallow commented-out code -->
+        <properties>
+            <property name="maxPercentage" value="70"/> <!-- Allow up to 70% of commented-out code in a file -->
+        </properties>
+    </rule>
+    <rule ref="Squiz.PHP.DiscouragedFunctions"/> <!-- Disallow discouraged functions, e.g., error_log(), print_r(), var_dump() -->
+    <rule ref="Squiz.PHP.Eval"/> <!-- Disallow eval() function -->
+
+    <rule ref="SlevomatCodingStandard.PHP.ReferenceSpacing"/>
+    <rule ref="SlevomatCodingStandard.PHP.TypeCast"/>
+    <rule ref="SlevomatCodingStandard.PHP.UselessParentheses">
+        <properties>
+            <property name="ignoreComplexTernaryConditions" value="true"/> <!-- Ignore complex ternary conditions -->
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.PHP.UselessSemicolon"/>
+
+
+    <!-- Metrics -->
+    <rule ref="Generic.Metrics.CyclomaticComplexity"> <!-- Cyclomatic complexity should not exceed 50 -->
+        <properties>
+            <property name="complexity" value="50"/>
+            <property name="absoluteComplexity" value="100"/> <!-- Absolute complexity limit -->
+        </properties>
+    </rule>
+    <rule ref="Generic.Metrics.NestingLevel"> <!-- Nesting level should not exceed 5 -->
+        <properties>
+            <property name="nestingLevel" value="5"/>
+            <property name="absoluteNestingLevel" value="10"/>
+        </properties>
+    </rule>
+
+
+    <!-- Comments -->
+    <rule ref="Squiz.Commenting.DocCommentAlignment"/> <!-- Formats stars in doc comments -->
+    <rule ref="SlevomatCodingStandard.Commenting.AnnotationName"/>
+    <rule ref="SlevomatCodingStandard.Commenting.DeprecatedAnnotationDeclaration"/>
+    <rule ref="SlevomatCodingStandard.Commenting.ForbiddenComments"/>
+    <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing"/>
+    <rule ref="SlevomatCodingStandard.Commenting.UselessFunctionDocComment">
+        <properties>
+            <property name="traversableTypeHints" type="array">
+                <element value="array"/>
+            </property>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.UselessInheritDocComment"/>
+    <rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration">
+        <properties>
+            <property name="allowAboveNonAssignment" value="true"/> <!-- Allow inline doc comments above line without assignment, or assignment inside if -->
+        </properties>
+    </rule>
+
+
+    <arg name="colors"/>
+    <ini name="memory_limit" value="128M"/>
 
 </ruleset>
