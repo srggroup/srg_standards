@@ -330,6 +330,7 @@
     <rule ref="SlevomatCodingStandard.Attributes.DisallowAttributesJoining"/>
     <rule ref="SlevomatCodingStandard.Attributes.DisallowMultipleAttributesPerLine"/>
     <rule ref="SlevomatCodingStandard.Attributes.RequireAttributeAfterDocComment"/>
+	<rule ref="SRG.Attribute.DisallowEmptyAttributeArgumentList"/>
 
     <!-- Other -->
     <rule ref="Generic.PHP.DisallowRequestSuperglobal"/> <!-- Disallow usage of $_REQUEST superglobal, use $_GET and $_POST instead -->
