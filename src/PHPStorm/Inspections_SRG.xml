@@ -88,7 +88,7 @@
   <inspection_tool class="PhpPossiblePolymorphicInvocationInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
     <scope name="Tests" level="TEXT ATTRIBUTES" enabled="true" editorAttributes="CONSIDERATION_ATTRIBUTES" />
   </inspection_tool>
-  <inspection_tool class="PhpPropertyCanBeReadonlyInspection" enabled="true" level="INFORMATION" enabled_by_default="true" editorAttributes="INFORMATION_ATTRIBUTES" />
+  <inspection_tool class="PhpPropertyCanBeReadonlyInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" editorAttributes="INFO_ATTRIBUTES" />
   <inspection_tool class="PhpPropertyNamingConventionInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
     <option name="m_minLength" value="2" />
     <option name="m_maxLength" value="40" />
