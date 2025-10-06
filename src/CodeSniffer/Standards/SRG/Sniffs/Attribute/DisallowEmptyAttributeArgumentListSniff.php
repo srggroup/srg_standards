@@ -28,11 +28,17 @@ class DisallowEmptyAttributeArgumentListSniff implements Sniff {
 	public function process(File $phpcsFile, $stackPtr): void {
 		$tokens = $phpcsFile->getTokens();
 
-		// Find the first '(' token after the attribute start
+		// Find the attribute end token (T_ATTRIBUTE_END)
+		$attributeEnd = $phpcsFile->findNext(T_ATTRIBUTE_END, $stackPtr + 1);
+		if ($attributeEnd === false) {
+			return;
+		}
+
+		// Find the first '(' token after the attribute start, but before the attribute end
 		$openParen = $phpcsFile->findNext(
 			T_OPEN_PARENTHESIS,
 			$stackPtr + 1,
-			null,
+			$attributeEnd,
 			false,
 			null,
 			true
@@ -46,6 +52,11 @@ class DisallowEmptyAttributeArgumentListSniff implements Sniff {
 		// i.e., that it has a corresponding closing parenthesis.
 		$closeParen = $tokens[$openParen]['parenthesis_closer'] ?? null;
 		if ($closeParen === null) {
+			return;
+		}
+
+		// Additional check: ensure the closing parenthesis is also within the attribute
+		if ($closeParen >= $attributeEnd) {
 			return;
 		}
 
