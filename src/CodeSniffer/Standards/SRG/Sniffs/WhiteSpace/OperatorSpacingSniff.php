@@ -32,6 +32,7 @@ class OperatorSpacingSniff extends SquizOperatorSpacingSniff {
 		}
 
 		if ($tokens[$stackPtr]['code'] === T_BITWISE_OR &&
+			isset($tokens[$stackPtr]['nested_parenthesis']) &&
 			count($tokens[$stackPtr]['nested_parenthesis']) === 1 &&
 			$tokens[array_key_first($tokens[$stackPtr]['nested_parenthesis']) - 2]['code'] === T_CATCH
 		) {
